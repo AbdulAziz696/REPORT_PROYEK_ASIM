@@ -33,7 +33,7 @@ Route::get('/user', function () {
     return view('layouts.user.index');
 });
 Route::get('/user-edit', function () {
-    return view('layouts.post.detail');
+    return view('layouts.post.edit');
 });
 Route::get('/user-profile', function () {
     return view('layouts.user.user_profile');

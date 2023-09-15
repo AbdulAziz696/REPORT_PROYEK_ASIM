@@ -1,5 +1,5 @@
 @extends('welcome')
-@yield('main')
+@section('main')
 
 <div class="main inline-flex justify-center mx-auto md:container md:mx-auto">
     <div class="container inline-flex flex-wrap justify-center ">

@@ -1,5 +1,5 @@
 @extends('welcome')
-@yield('main')
+@section('main')
 
 <div class="container object-contain">
 
