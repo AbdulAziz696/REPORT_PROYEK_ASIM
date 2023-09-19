@@ -42,6 +42,7 @@ class PostController extends Controller
             $image = $store->file('image');
             $nama_gambar = time() . rand(1, 9) . '.' . $image->getClientOriginalExtension();
             $path = $image->storeAs('report-image', $nama_gambar);
+
             $post->image = $path;
             $post->save();
         }
@@ -54,9 +55,12 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $post, $slug)
     {
         //
+        $posts = $post::where('slug', $slug)->first();
+
+        return view('layouts.post.detail',compact('posts'));
     }
 
     /**

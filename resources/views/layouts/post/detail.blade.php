@@ -5,9 +5,8 @@
 
         <div class="hearder">
         <div class="title my-auto">
-            <p class="leading-normal font-semibold text-3xl ">Layanan VSAT Star dan MangoStar Tarik Perhatian
-                pada RAPIM CFUE Q2-2023</p>
-                <p class="">created_date</p>
+            <p class="leading-normal font-semibold text-3xl ">{{$posts->title}}</p>
+                <p class="">{{ date('d M Y H:i', strtotime($posts->created_at)) }}</p>
             </div>
 
                 <div class="profile flex flex-row justify-start ms-0">
@@ -36,11 +35,11 @@
                 </div>
                 <div class="content-text mt-4">
                     <p class=" font-semibold">Deskripsi</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam dolor accusamus maiores incidunt aut quasi quis officiis quia distinctio officia, hic ullam, repudiandae iure maxime necessitatibus, nihil obcaecati sint non. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consequuntur est reiciendis eveniet corporis cumque veritatis, aspernatur suscipit porro facilis doloremque voluptatibus voluptatem repudiandae maxime placeat eaque fugit vel inventore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat enim dignissimos fugiat libero perspiciatis fuga eveniet, molestiae ducimus iusto veritatis animi adipisci corporis necessitatibus quae facilis. Dolores quia id illum.</p>
+                    <p>{!! $posts->content !!}</p>
                 </div>
                 <div class="content-link flex flex-row mt-4 ">
                     <p class=" font-semibold">Berikut link akses projeknya:</p>
-                   <a href="#" class=" ms-1 hover:text-blue-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                   <a href="{{$posts->url}}" class=" ms-1 hover:text-blue-700">{{$posts->url}}</a>
                 </div>
             </div>
         </div>

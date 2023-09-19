@@ -11,13 +11,13 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Post $post,UserRequest $request)
+    public function index(Post $post)
     {
         //
         $posts = $post::all();
 
 
-        return view('layouts.user.detail',compact($post));
+        return view('layouts.user.detail',compact('posts'));
     }
 
     /**

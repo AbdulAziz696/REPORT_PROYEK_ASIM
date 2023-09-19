@@ -1,6 +1,6 @@
 @extends('welcome')
 @section('main')
-    <div class=" card mx-5 my-5">
+    <div class=" mx-5 my-5">
         <table id="myTable" class="display" style="width:100%">
             <div class=" flex justify-end my-3">
                 <button

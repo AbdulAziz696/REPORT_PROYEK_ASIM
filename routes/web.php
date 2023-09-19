@@ -37,7 +37,7 @@ Route::get('/user-edit', function () {
     return view('layouts.post.edit');
 });
 Route::get('user-detail', [UserController::class,'index']
-);
+)->name('user-detail');
 Route::get('/admin', function () {
     return view('layouts.admin.index');
 });
@@ -47,6 +47,8 @@ Route::get('/admin', function () {
 Route::prefix('post')->group(function(){
 
     Route::get('/', [PostController::class,'index']);
+
+    Route::get('/{slug}', [PostController::class,'show']);
 
     Route::get('/add',[PostController::class,'create']);
 
