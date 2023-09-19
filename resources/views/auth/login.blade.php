@@ -39,12 +39,27 @@
                     <input type="password" id="password"
                         class="mt-1 p-2 border rounded w-full focus:ring focus:ring-red-300"
                         placeholder="Enter your password">
+                    <input type="checkbox" id="showPassword" class="mt-2">
+                    <label for="showPassword" class="text-gray-700 ml-2 cursor-pointer select-none">Show Password</label>
                 </div>
                 <button type="submit"
                     class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">Login</button>
             </form>
         </div>
     </div>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const showPasswordCheckbox = document.getElementById("showPassword");
+    
+        showPasswordCheckbox.addEventListener("change", function () {
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
 
 </body>
 
