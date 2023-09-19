@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorepostRequest;
 use App\Http\Requests\UpdatepostRequest;
-use App\Models\post;
+use App\Models\Post;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -13,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('post.index');
     }
 
     /**
@@ -21,22 +23,38 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('layouts.post.create');
         //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorepostRequest $request)
+    public function store(Post $post,StorepostRequest $store)
     {
+        $post = $post::create([
+            'title' => $store->input('title'),
+            'content' => $store->input('content'),
+            'url' => $store->input('url'),
+        ]);
+
+        if ($store->hasFile('image')) {
+            $image = $store->file('image');
+            $nama_gambar = time() . rand(1, 9) . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('report-image', $nama_gambar);
+            $post->image = $path;
+            $post->save();
+        }
+
+        return redirect()->route('user-detail');
+
         //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(post $post)
+    public function show(Post $post)
     {
         //
     }
@@ -44,7 +62,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(post $post)
+    public function edit(Post $post)
     {
         //
     }
@@ -52,7 +70,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatepostRequest $request, post $post)
+    public function update(UpdatepostRequest $request, Post $post)
     {
         //
     }

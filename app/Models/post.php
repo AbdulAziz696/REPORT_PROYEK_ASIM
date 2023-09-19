@@ -12,7 +12,7 @@ class Post extends Model
     use Sluggable;
 
     protected $guarded=[];
-    
+
     public function sluggable(): array
     {
         return [

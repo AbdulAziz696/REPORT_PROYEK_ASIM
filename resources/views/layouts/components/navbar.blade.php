@@ -25,7 +25,7 @@
         href="/"
         class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
       >
-        K-WD
+        ASIM
       </a>
 
       <!-- Mobile sub menu button -->
@@ -54,7 +54,7 @@
 
       <!-- Desktop Right buttons -->
       <nav aria-label="Secondary" class="hidden space-x-2 md:flex md:items-center">
-       
+
 
         <!-- User avatar button -->
         <div class="relative" x-data="{ open: false }">

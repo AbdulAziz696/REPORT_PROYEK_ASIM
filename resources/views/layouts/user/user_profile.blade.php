@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Pengguna</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 h-screen flex justify-center items-center">
+@extends('welcome')
+@section('main')
+
     <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3 my-8">
         <h1 class="text-2xl font-semibold mb-4">Profil Pengguna</h1>
         <div class="flex flex-col items-center justify-center mb-6">
@@ -48,5 +42,5 @@
             <button type="submit" class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 focus:outline-none focus:ring focus:ring-blue-200">Simpan Profil</button>
         </form>
     </div>
-</body>
-</html>
+    @endsection
+
