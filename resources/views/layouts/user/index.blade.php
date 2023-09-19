@@ -13,6 +13,7 @@
                 <th>Age</th>
                 <th>Project Qty</th>
                 <th>Start date</th>
+                <th>End date</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
                 <td>Chief Financial Officer (CFO)</td>
                 <td>New York</td>
                 <td>64</td>
+                <td>2010-06-09</td>
                 <td>2010-06-09</td>
                 {{-- <td>$725,000</td> --}}
             </tr>

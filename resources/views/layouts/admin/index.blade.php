@@ -15,6 +15,7 @@
                     <th>Age</th>
                     <th>Project Qty</th>
                     <th>Start date</th>
+                    <th>End date</th>
                 </tr>
             </thead>
             <tbody>
