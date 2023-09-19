@@ -27,6 +27,26 @@ class PostController extends Controller
         //
     }
 
+    public function daftar()
+    {
+        return view('auth.register');
+    }
+
+    public function home()
+    {
+        return view('index');
+    }
+
+    public function employe()
+    {
+        return view('layouts.user.index');
+    }
+
+    public function project_report()
+    {
+        return view('layouts.post.index');
+    }
+
     /**
      * Store a newly created resource in storage.
      */

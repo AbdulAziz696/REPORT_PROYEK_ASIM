@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/daftar', [PostController::class, 'daftar']);
+Route::get('/home', [PostController::class, 'home']);
+Route::get('/employe', [PostController::class, 'employe']);
+Route::get('/project_report', [PostController::class, 'project_report']);
 
 
 // Route::get('/register', function () {
