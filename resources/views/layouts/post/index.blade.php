@@ -2,163 +2,30 @@
 @section('main')
 
 <div class="main inline-flex justify-center mx-auto md:container md:mx-auto">
-    <div class="container inline-flex flex-wrap justify-center ">
+    <div class="container inline-flex flex-wrap justify-left ">
 
+@foreach ($posts as $i)
 
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
+    <div class=" bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
+        <div class=" w-38 h-38 mx-8 -mt-12">
+            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src=" {{ asset('/storage/' . $i->image) }}" />
             {{-- <div
                 class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
                 {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
             {{-- </div> --}}
         </div>
         <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
+            <h1 class="font-bold text-xl text-black text-center">{{$i->title}}</h1>
         </div>
         <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
+            <button onclick="location.href='post/detail/{{$i->slug }}'"
+                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Detail Aplikasi</button>
         </div>
     </div>
 
-    <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-        <div class=" w-48 h-48 mx-8 -mt-12">
-            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src="img/img-login.png" />
-            {{-- <div
-                class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
-                {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
-            {{-- </div> --}}
-        </div>
-        <div class="mt-4 mx-8 justify-center">
-            <h1 class="font-bold text-xl text-black text-center">Nama Aplikasi</h1>
-        </div>
-        <div class="mx-7 my-3">
-            <button
-                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-                Aplikasi</button>
-        </div>
-    </div>
+    @endforeach
+
+
 
 
     {{-- <div id="tab1" class="main-content__list">

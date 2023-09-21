@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Post extends Model
 {
-    use HasFactory;
-    use Sluggable;
+    use HasFactory, Sluggable;
 
-    protected $guarded=[];
+
+    protected $guarded = [];
+
 
     public function sluggable(): array
     {
@@ -22,10 +23,10 @@ class Post extends Model
         ];
     }
 
-    public function Post(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
+    // public function Post(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, 'user_id', 'id');
+    // }
 
 
 }

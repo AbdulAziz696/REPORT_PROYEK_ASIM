@@ -50,13 +50,14 @@ Route::get('/admin', function () {
 
 Route::prefix('post')->group(function(){
 
-    Route::get('/', [PostController::class,'index']);
+    Route::get('', [PostController::class,'index']);
 
-    Route::get('/{slug}', [PostController::class,'show']);
+    Route::get('detail/{slug}', [PostController::class,'show']);
 
-    Route::get('/add',[PostController::class,'create']);
+    Route::get('add',[PostController::class,'create']);
 
-    Route::post('/add-post',[PostController::class,'store']);
+    Route::post('add-post',[PostController::class,'store']);
 
-    Route::get('/edit',[PostController::class,'edit']);
+    Route::get('{slug}/edit',[PostController::class,'edit']);
 });
+

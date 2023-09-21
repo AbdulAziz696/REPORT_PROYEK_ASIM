@@ -48,7 +48,7 @@
 
 
                 <!-- Main content -->
-                <main class="container mb-auto">
+                <main class="container mb-auto ">
 
                     @yield('main')
                     {{-- @yield('main') --}}
