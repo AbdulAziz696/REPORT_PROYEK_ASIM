@@ -27,7 +27,8 @@
             <!-- Tambahkan mx-4 di sini -->
             <h1 class="text-2xl md:text-3xl font-semibold text-red-500 mb-2">Selamat Datang</h1>
             <p class="text-gray-600 mb-4">Silahkan masuk untuk melanjutkan</p>
-            <form>
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
                 <div class="mb-4">
                     <label for="username" class="block text-gray-700 font-semibold">Username</label>
                     <input type="text" id="username"
