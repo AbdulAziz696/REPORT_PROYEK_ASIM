@@ -54,8 +54,10 @@
         <h1 class="font-bold text-xl text-black text-center">{{$i->title}}</h1>
     </div>
     <div class="mx-7 my-3">
-        <a href="{{ url("post/$i->slug") }}"  class="btn border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 transition">Detail
-            Aplikasi</a>
+        <button onclick="location.href='post/detail/{{$i->slug}}'"
+            class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Detail Aplikasi</button>
+
+
     </div>
 </div>
 

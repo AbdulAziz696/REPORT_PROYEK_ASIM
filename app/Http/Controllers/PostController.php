@@ -13,9 +13,11 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Post $post)
     {
-        return view('post.index');
+        $posts = $post::all();
+
+        return view('layouts.post.index',compact('posts'));
     }
 
     /**
@@ -23,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('layouts.post.create');
+        return view('layouts.post.edit');
         //
     }
 
@@ -50,7 +52,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Post $post,StorepostRequest $store)
+    public function store(Post $post, StorepostRequest $store)
     {
         $post = $post::create([
             'title' => $store->input('title'),
@@ -62,7 +64,6 @@ class PostController extends Controller
             $image = $store->file('image');
             $nama_gambar = time() . rand(1, 9) . '.' . $image->getClientOriginalExtension();
             $path = $image->storeAs('report-image', $nama_gambar);
-
             $post->image = $path;
             $post->save();
         }
@@ -75,20 +76,26 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post, $slug)
+    public function show (Post $post, $slug)
     {
         //
         $posts = $post::where('slug', $slug)->first();
 
-        return view('layouts.post.detail',compact('posts'));
+        return view('layouts.post.detail',
+        compact('posts')
+    );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Post $post, $slug)
     {
         //
+        $selected_post = Post::where('slug', $slug)->first();
+
+
+        return view('layouts.post.edit',compact('selected_post'));
     }
 
     /**
