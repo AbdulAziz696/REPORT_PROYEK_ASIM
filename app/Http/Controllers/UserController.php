@@ -18,7 +18,7 @@ class UserController extends Controller
         $users = $user::all();
 
 
-        return view('layouts.user.index',compact('users'));
+        return view('layouts.user.index', compact('users'));
     }
 
     /**
@@ -40,10 +40,15 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show( )
+    public function show(User $user, Post $post, $slug)
     {
-        //
+        $user = $user::where('slug', $slug)->firstOrFail();
+        $posts = $post::where('user_id', $user->id)->get();
+
+        return view('layouts.user.detail', compact('user', 'posts'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

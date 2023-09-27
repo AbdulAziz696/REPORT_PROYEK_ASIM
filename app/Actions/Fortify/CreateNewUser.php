@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -21,6 +22,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            // 'slug' => ['required', 'string', 'max:255'],
             'email' => [
                 'required',
                 'string',
@@ -34,8 +36,12 @@ class CreateNewUser implements CreatesNewUsers
             'addres' => ['required', 'string', 'max:255'],
         ])->validate();
 
+        $slug = SlugService::createSlug(User::class, 'slug', $input['name']);
+
+
         return User::create([
             'name' => $input['name'],
+            'slug' => $slug,
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             // 'phone' => $input['phone'],

@@ -12,7 +12,7 @@
         <div class="card-img  text-white text-center -mt-10">
             <img src="img/img-login.png" alt="" class="img-user rounded-full  h-24 img-fluid  border border-solid border-white-25 mx-auto">
       </div>
-      <h2 class="txt-username text-center">Username</h2>
+      <h2 class="txt-username text-center">{{$user->name}}</h2>
     </div>
 
 

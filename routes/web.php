@@ -42,8 +42,8 @@ Route::prefix('user')->group(function(){
     Route::get('/edit', function () {
         return view('layouts.post.edit');
     });
-    Route::get('user-detail', [UserController::class,'index']
-    )->name('user-detail');
+    Route::get('{slug}/detail', [UserController::class,'show']
+    );
 
 });
 
