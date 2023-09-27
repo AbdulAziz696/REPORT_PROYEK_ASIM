@@ -31,13 +31,13 @@
                 @csrf
                 <div class="mb-4">
                     <label for="username" class="block text-gray-700 font-semibold">Username</label>
-                    <input type="text" id="username"
+                    <input type="text" name="email" id="username"
                         class="mt-1 p-2 border rounded w-full focus:ring focus:ring-red-300"
                         placeholder="Enter your username">
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block text-gray-700 font-semibold">Password</label>
-                    <input type="password" id="password"
+                    <input type="password" name="password" id="password"
                         class="mt-1 p-2 border rounded w-full focus:ring focus:ring-red-300"
                         placeholder="Enter your password">
                     <input type="checkbox" id="showPassword" class="mt-2">

@@ -51,6 +51,11 @@ class PostController extends Controller
         return view('auth.register');
     }
 
+    public function masuk()
+    {
+        return view('auth.login');
+    }
+
 
 
 
