@@ -60,59 +60,72 @@
 
 
 
+        @guest
+        <!-- Tombol Login -->
+        <button onclick="window.location.href='/masuk'" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-500">Login</button>
+    
+        <!-- Tombol Sign Up -->
+        <button onclick="window.location.href='/daftar'" class="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-green-500">Sign Up</button>
+        
+        @else
         <div class="relative" x-data="{ open: false }">
           <button
-            @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })"
-            type="button"
-            aria-haspopup="true"
-            :aria-expanded="open ? 'true' : 'false'"
-            class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
+              @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })"
+              type="button"
+              aria-haspopup="true"
+              :aria-expanded="open ? 'true' : 'false'"
+              class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100 flex items-center" <!-- Menambahkan class flex items-center -->
           >
-            <span class="sr-only">User menu</span>
-            <img class="w-10 h-10 rounded-full" src="{{asset('img/'.auth()->user()->image)}}" alt="Ahmed Kamel" />
+              <img class="w-10 h-10 rounded-full" src="{{ asset('img/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}" />
+              <span class="ml-2">{{ auth()->user()->name }}</span> <!-- Memindahkan ini ke samping kiri foto profil -->
           </button>
-
+      
           <!-- User dropdown menu -->
           <div
-            x-show="open"
-            x-ref="userMenu"
-            x-transition:enter="transition-all transform ease-out"
-            x-transition:enter-start="translate-y-1/2 opacity-0"
-            x-transition:enter-end="translate-y-0 opacity-100"
-            x-transition:leave="transition-all transform ease-in"
-            x-transition:leave-start="translate-y-0 opacity-100"
-            x-transition:leave-end="translate-y-1/2 opacity-0"
-            @click.away="open = false"
-            @keydown.escape="open = false"
-            class="absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
-            tabindex="-1"
-            role="menu"
-            aria-orientation="vertical"
-            aria-label="User menu"
+              x-show="open"
+              x-ref="userMenu"
+              x-transition:enter="transition-all transform ease-out"
+              x-transition:enter-start="translate-y-1/2 opacity-0"
+              x-transition:enter-end="translate-y-0 opacity-100"
+              x-transition:leave="transition-all transform ease-in"
+              x-transition:leave-start="translate-y-0 opacity-100"
+              x-transition:leave-end="translate-y-1/2 opacity-0"
+              @click.away="open = false"
+              @keydown.escape="open = false"
+              class="absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
+              tabindex="-1"
+              role="menu"
+              aria-orientation="vertical"
+              aria-label="User menu"
           >
-            <a
-              href="#"
-              role="menuitem"
-              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-            >
-              Your Profile
-            </a>
-            <a
-              href="#"
-              role="menuitem"
-              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-            >
-              Settings
-            </a>
-            <a
-              href="#"
-              role="menuitem"
-              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-            >
-              Logout
-            </a>
+              <a
+                  href="#"
+                  role="menuitem"
+                  class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+              >
+                  Your Profile
+              </a>
+              <a
+                  href="#"
+                  role="menuitem"
+                  class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+              >
+                  Settings
+              </a>
+              <a href="{{ route('logout') }}" role="menuitem"
+                  class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  Logout
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
           </div>
-        </div>
+      </div>
+      
+        @endguest
+
+        
 
       </nav>
 
