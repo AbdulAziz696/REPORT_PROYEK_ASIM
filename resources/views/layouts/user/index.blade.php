@@ -36,7 +36,7 @@
             <tr>
 
                 <td>{{$i->name}}</td>
-                <td><img src="" alt="let's gooo"></td>
+                <td><img src="{{asset('img/'.$i->image)}}" alt="let's gooo"></td>
                 <td>Chief Financial Officer (CFO)</td>
                 <td>New York</td>
                 <td>64</td>
