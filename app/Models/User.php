@@ -43,4 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source'     => 'name'
+            ]
+        ];
+    }
 }

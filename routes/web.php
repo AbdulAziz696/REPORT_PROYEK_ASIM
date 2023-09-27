@@ -34,15 +34,19 @@ Route::get('/project_report', [PostController::class, 'project_report']);
 // });
 
 
+Route::prefix('user')->group(function(){
 
-Route::get('/user', function () {
-    return view('layouts.user.index');
+    Route::get('/', function () {
+        return view('layouts.user.index');
+    });
+    Route::get('/edit', function () {
+        return view('layouts.post.edit');
+    });
+    Route::get('user-detail', [UserController::class,'index']
+    )->name('user-detail');
+
 });
-Route::get('/user-edit', function () {
-    return view('layouts.post.edit');
-});
-Route::get('user-detail', [UserController::class,'index']
-)->name('user-detail');
+
 
 Route::get('/admin', function () {
     return view('layouts.admin.index');
