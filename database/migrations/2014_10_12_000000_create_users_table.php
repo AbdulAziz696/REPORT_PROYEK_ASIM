@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('city');
             $table->text('addres');
             $table->string('password');
-            $table->string('image')->default('image_user.png');
+            $table->string('image')->default('image_user.png')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
