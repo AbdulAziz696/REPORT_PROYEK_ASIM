@@ -18,8 +18,8 @@
                     "
                         alt=""class="rounded-circle img-fluid border border-solid border-white-250 w-10 h-10 me-2">
                     <div class="flex flex-col align-item justify-center">
-                        <p class="text-xs font-semibold">username</p>
-                        <p class="text-xs">role</p>
+                        <p class="text-xs font-semibold">{{$posts->postwriter->name}}</p>
+                        <p class="text-xs">{{$posts->postwriter->role}}</p>
 
                     </div>
                 </div>
@@ -59,5 +59,12 @@
         <div class="btn_edit_post">
             <button onclick="location.href='{{ url('post/'.$posts->slug.'/edit') }}'"
                 class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Edit</button>
+        </div>
+        <div class="btn_delete_post">
+            <form action="{{ url("post/$posts->id") }}" method="post">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="border border-gray-400 py-2 px-4 rounded w-full bg-red-600 text-white hover:bg-gray-400 hover:text-gray-600 hover:border-gray-700 transition">delete</button>
+            </form>
         </div>
     @endsection

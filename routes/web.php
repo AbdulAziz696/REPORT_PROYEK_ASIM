@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Route::get('/daftar', [PostController::class, 'daftar']);
-Route::get('/home', [PostController::class, 'home']);
-Route::get('/employe', [PostController::class, 'employe']);
+Route::get('/', [PostController::class, 'home']);
+Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
 
 
@@ -42,22 +42,30 @@ Route::get('/user-edit', function () {
 });
 Route::get('user-detail', [UserController::class,'index']
 )->name('user-detail');
+
 Route::get('/admin', function () {
     return view('layouts.admin.index');
 });
 
 // Route::prefix()
+Route::get('/search', 'PostController@search')->name('search');
+
+
 
 Route::prefix('post')->group(function(){
 
     Route::get('', [PostController::class,'index']);
 
+    // Route::get('search', [PostController::class,'search'])->name('search');
+
     Route::get('detail/{slug}', [PostController::class,'show']);
 
     Route::get('add',[PostController::class,'create']);
-
     Route::post('add-post',[PostController::class,'store']);
 
     Route::get('{slug}/edit',[PostController::class,'edit']);
+    Route::patch('{slug}/edit-post',[PostController::class,'update']);
+
+    Route::delete('{id}', [PostController::class, 'destroy']);
 });
 

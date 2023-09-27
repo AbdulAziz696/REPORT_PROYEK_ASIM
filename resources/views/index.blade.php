@@ -26,7 +26,7 @@
           >
             Projects
           </h6>
-          <span class="text-xl font-semibold">5</span>
+          <span class="text-xl font-semibold">{{$posts->count()}}</span>
           {{-- <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
             +4.4%
           </span> --}}
@@ -59,7 +59,7 @@
           >
             Users
           </h6>
-          <span class="text-xl font-semibold">50,021</span>
+          <span class="text-xl font-semibold">{{$users->count()}}</span>
           {{-- <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
             +2.6%
           </span> --}}

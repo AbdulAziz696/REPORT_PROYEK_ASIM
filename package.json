@@ -33,6 +33,7 @@
     "combined-stream": "^1.0.8",
     "commander": "^4.1.1",
     "concat-map": "^0.0.1",
+    "cropperjs": "^1.6.1",
     "cssesc": "^3.0.0",
     "delayed-stream": "^1.0.0",
     "didyoumean": "^1.2.2",

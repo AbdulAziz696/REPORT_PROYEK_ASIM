@@ -1,12 +1,24 @@
 @extends('welcome')
 @section('main')
 <div class="container mx-auto my-5">
+    <div class="button flex justify-end my-3 ">
+        @if (Auth::check())
+        @if (Auth::user()->role == 'admin')
+        @if (Auth::user()->active == 1)
+
+        <a href="{{url('/daftar')}}" class="bg-blue-500 btn hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+            Add Employee
+        </a>
+        @endif
+
+        @endif
+
+        @else
+
+        @endif
+
+    </div>
     <table id="myTable" class="display" style="width:100%">
-        <div class="button flex justify-end my-3 ">
-            <a href="{{url('/daftar')}}" class="bg-blue-500 btn hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-                Add Employee
-            </a>
-        </div>
         <thead>
             <tr>
                 <th>Name</th>
@@ -20,16 +32,21 @@
         </thead>
         <tbody>
 
+            @foreach ($users as $i)
             <tr>
-                <td>Paul Byrd</td>
+
+                <td>{{$i->name}}</td>
                 <td><img src="" alt="let's gooo"></td>
                 <td>Chief Financial Officer (CFO)</td>
                 <td>New York</td>
                 <td>64</td>
-                <td>2010-06-09</td>
+                <td>{{$i->created_at}}</td>
                 <td>2010-06-09</td>
                 {{-- <td>$725,000</td> --}}
+
+
             </tr>
+            @endforeach
 
     </table>
 </div>

@@ -12,8 +12,11 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 
     {{-- Link Bootsrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     {{-- Link Tailwind CSS --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -27,7 +30,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     {{-- CK EDITOR --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+
 
 </head>
 
@@ -108,40 +112,10 @@
                 //
             }
 
-            const updateBarChart = (on) => {
-                const data = {
-                    data: randomData(),
-                    backgroundColor: 'rgb(207, 250, 254)',
-                }
-                if (on) {
-                    barChart.data.datasets.push(data)
-                    barChart.update()
-                } else {
-                    barChart.data.datasets.splice(1)
-                    barChart.update()
-                }
-            }
 
-            const updateDoughnutChart = (on) => {
-                const data = random()
-                const color = 'rgb(207, 250, 254)'
-                if (on) {
-                    doughnutChart.data.labels.unshift('Seb')
-                    doughnutChart.data.datasets[0].data.unshift(data)
-                    doughnutChart.data.datasets[0].backgroundColor.unshift(color)
-                    doughnutChart.update()
-                } else {
-                    doughnutChart.data.labels.splice(0, 1)
-                    doughnutChart.data.datasets[0].data.splice(0, 1)
-                    doughnutChart.data.datasets[0].backgroundColor.splice(0, 1)
-                    doughnutChart.update()
-                }
-            }
 
-            const updateLineChart = () => {
-                lineChart.data.datasets[0].data.reverse()
-                lineChart.update()
-            }
+
+
 
             return {
                 loading: true,
@@ -178,46 +152,32 @@
                         this.$refs.mobileMainMenu.focus()
                     })
                 },
-                updateBarChart,
-                updateDoughnutChart,
-                updateLineChart,
+
             }
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
 
-   <script>
+    <script>
         $(document).ready(function() {
             $('#myTable').DataTable();
         });
     </script>
-    <script>
-        var DataTable = require('datatables.net');
-        require('datatables.net-responsive');
-    </script>
 
     {{-- @endsection --}}
-    @section('script')
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#content'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-    @endsection
     <script>
         ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
     </script>
 
-
 </body>
+
 
 </html>

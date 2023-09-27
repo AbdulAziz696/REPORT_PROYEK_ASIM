@@ -23,10 +23,10 @@ class Post extends Model
         ];
     }
 
-    // public function Post(): BelongsTo
-    // {
-    //     return $this->belongsTo(User::class, 'user_id', 'id');
-    // }
+    public function postwriter(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 
 
 }

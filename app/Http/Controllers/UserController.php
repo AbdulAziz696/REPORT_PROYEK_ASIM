@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,13 +12,13 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Post $post)
+    public function index(User $user)
     {
         //
-        $posts = $post::all();
+        $users = $user::all();
 
 
-        return view('layouts.user.detail',compact('posts'));
+        return view('layouts.user.index',compact('users'));
     }
 
     /**

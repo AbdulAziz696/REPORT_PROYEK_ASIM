@@ -47,28 +47,28 @@
           </a>
           <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
             <a
-                href="{{url('/home')}}"
+                href="{{url('/')}}"
                 role="menuitem"
                 class="block p-2 text-sm {{ Request::is('home*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light"
             >
                 Default
             </a>
             <a
-                href="{{url('/employe')}}"
+                href="{{url('/intern')}}"
                 role="menuitem"
-                class="block p-2 text-sm {{ Request::is('employe*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light"
+                class="block p-2 text-sm {{ Request::is('intern*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light"
             >
-                Employee
+                intern
             </a>
             <a
-                href="{{url('/project_report')}}"
+                href="{{url('post')}}"
                 role="menuitem"
                 class="block p-2 text-sm {{ Request::is('project_report*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light"
             >
                 Project Report
             </a>
         </div>
-        
+
         </div>
 
         {{-- <!-- Components links -->
@@ -416,6 +416,6 @@
       </nav> --}}
 
       <!-- Sidebar footer -->
-      
+
     </div>
   </aside>
