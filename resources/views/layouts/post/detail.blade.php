@@ -61,10 +61,36 @@
                 class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Edit</button>
         </div>
         <div class="btn_delete_post">
-            <form action="{{ url("post/$posts->id") }}" method="post">
+            <form action="{{ url("post/$posts->id")}}" method="post">
                 @method('DELETE')
                 @csrf
-                <button type="submit" class="border border-gray-400 py-2 px-4 rounded w-full bg-red-600 text-white hover:bg-gray-400 hover:text-gray-600 hover:border-gray-700 transition">delete</button>
+                <button type="submit"  class="border border-gray-400 py-2 px-4 rounded w-full bg-red-600 text-white hover:bg-gray-400 hover:text-gray-600 hover:border-gray-700 transition">delete</button>
             </form>
         </div>
+
+
+        <script src="sweetalert2.all.min.js">
+            function archiveFunction() {
+event.preventDefault(); // prevent form submit
+var form = event.target.form; // storing the form
+        swal({
+  title: "Are you sure?",
+  text: "But you will still be able to retrieve this file.",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Yes, archive it!",
+  cancelButtonText: "No, cancel please!",
+  closeOnConfirm: false,
+  closeOnCancel: false
+},
+function(isConfirm){
+  if (isConfirm) {
+    form.submit();          // submitting the form when user press yes
+  } else {
+    swal("Cancelled", "Your imaginary file is safe :)", "error");
+  }
+});
+}
+        </script>
     @endsection
