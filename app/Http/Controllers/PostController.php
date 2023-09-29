@@ -56,6 +56,11 @@ class PostController extends Controller
         return view('auth.login');
     }
 
+    public function profile()
+    {
+        return view('layouts.user.user_profile');
+    }
+
 
 
 

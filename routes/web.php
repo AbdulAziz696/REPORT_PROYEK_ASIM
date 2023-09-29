@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/daftar', [PostController::class, 'daftar']);
 Route::get('/masuk', [PostController::class, 'masuk']);
+Route::get('/profile', [PostController::class, 'profile']);
 Route::get('/', [PostController::class, 'home']);
 Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
