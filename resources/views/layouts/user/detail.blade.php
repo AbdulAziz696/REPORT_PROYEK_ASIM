@@ -7,10 +7,10 @@
     </div> --}}
     <div>
         <div class="bg-img">
-            <img src="img/img-login.png" alt="" class="object-cover h-48 w-full">
+            <img src="{{asset('img/img-login.png')}}" alt="" class="object-cover h-48 w-full">
         </div>
         <div class="card-img  text-white text-center -mt-10">
-            <img src="img/img-login.png" alt="" class="img-user rounded-full  h-24 img-fluid  border border-solid border-white-25 mx-auto">
+            <img src="{{asset('img/'.$user->image)}}" alt="" class="img-user rounded-full  h-24 img-fluid  border border-solid border-white-25 mx-auto">
       </div>
       <h2 class="txt-username text-center">{{$user->name}}</h2>
     </div>
@@ -38,6 +38,7 @@
 </ul>
 </div>
 {{-- <div class="inline-flex"> --}}
+    <a href="{{url('post/add')}}" class="btn bg-green-600 w-full text-white">Add project</a>
 <div class="main inline-flex justify-center mx-auto md:container md:mx-auto">
 <div class="container inline-flex flex-wrap justify-center ">
 
@@ -54,8 +55,11 @@
         <h1 class="font-bold text-xl text-black text-center">{{$i->title}}</h1>
     </div>
     <div class="mx-7 my-3">
-        <button onclick="location.href='post/detail/{{$i->slug}}'"
-            class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Detail Aplikasi</button>
+
+
+
+        <a href="{{url('post/'.$i->slug.'/detail')}}" class="btn border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Detail Aplikasi</a>
+
 
 
     </div>

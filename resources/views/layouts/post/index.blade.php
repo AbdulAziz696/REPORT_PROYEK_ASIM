@@ -86,9 +86,9 @@
         <tbody>
             @foreach ($posts as $i)
             <tr>
-                <td><img src="" alt=""></td>
-                <td>Row 1 Data 2</td>
-                <td>Row 1 Data 2</td>
+                <td><img src="{{asset('storage/' . $i->image) }}" alt="" class=" w-40"></td>
+                <td><a href="{{url('post/'.$i->slug.'/detail')}}">{{$i->title}}</a></td>
+                <td>{{$i->postwriter->name}}</td>
             </tr>
             @endforeach
 
