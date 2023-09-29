@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+
+    public function profile()
+    {
+        return view('layouts.user.user_profile');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -54,11 +59,6 @@ class PostController extends Controller
     public function masuk()
     {
         return view('auth.login');
-    }
-
-    public function profile()
-    {
-        return view('layouts.user.user_profile');
     }
 
 
@@ -125,7 +125,7 @@ class PostController extends Controller
             $post->save();
         }
 
-        return redirect()->route('user-detail');
+        return redirect()->back();
 
         //
     }
@@ -138,9 +138,7 @@ class PostController extends Controller
         //
         $posts = $post::where('slug', $slug)->first();
 
-        return view(
-            'layouts.post.detail',
-            compact('posts')
+        return view('layouts.post.detail',compact('posts')
         );
     }
 
@@ -192,7 +190,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
+        $post = User::findOrFail($id);
         $post->delete();
 
         return redirect('post');

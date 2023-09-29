@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
+Route::get('/profile', [PostController::class, 'profile']);
 Route::get('/daftar', [PostController::class, 'daftar']);
 Route::get('/masuk', [PostController::class, 'masuk']);
-Route::get('/profile', [PostController::class, 'profile']);
 Route::get('/', [PostController::class, 'home']);
 Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
@@ -44,7 +44,9 @@ Route::prefix('user')->group(function(){
         return view('layouts.post.edit');
     });
     Route::get('{slug}/detail', [UserController::class,'show']
-    );
+    )->name('user.detail ');
+
+    Route::delete('{id}', [UserController::class, 'destroy']);
 
 });
 
@@ -64,7 +66,7 @@ Route::prefix('post')->group(function(){
 
     // Route::get('search', [PostController::class,'search'])->name('search');
 
-    Route::get('detail/{slug}', [PostController::class,'show']);
+    Route::get('{slug}/detail', [PostController::class,'show']);
 
     Route::get('add',[PostController::class,'create']);
     Route::post('add-post',[PostController::class,'store']);
