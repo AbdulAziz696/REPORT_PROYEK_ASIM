@@ -56,7 +56,7 @@
                          aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
                          class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100 flex items-center"
                          <!-- Menambahkan class flex items-center -->
-                         @if (Auth::checked())
+                         @if (Auth::check())
                          <img class="w-10 h-10 rounded-full" src="{{ asset('img/' . Auth::user()->image) }}"
                              alt="{{ auth()->user()->name }}" />
                          @else
