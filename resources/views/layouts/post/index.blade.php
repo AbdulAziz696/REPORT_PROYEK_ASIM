@@ -81,14 +81,23 @@
                 <th>Image</th>
                 <th>Nama Projek</th>
                 <th>Postwriter</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($posts as $i)
             <tr>
-                <td><img src="{{asset('storage/' . $i->image) }}" alt="" class=" w-40"></td>
+                <td><img src="{{asset('storage/' . $i->image) }}" alt="" class=" w-30"></td>
                 <td><a href="{{url('post/'.$i->slug.'/detail')}}">{{$i->title}}</a></td>
                 <td>{{$i->postwriter->name}}</td>
+                <td>
+                    <div class="inline-flex">
+
+                        <button data-modal-target="authentication-modal{{$i->id}}" data-modal-toggle="authentication-modal{{$i->id}}" class="block text-white mx-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                            edit
+                          </button>
+                    </div>
+                </td>
             </tr>
             @endforeach
 

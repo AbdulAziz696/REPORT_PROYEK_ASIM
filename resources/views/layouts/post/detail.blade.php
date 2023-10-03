@@ -14,7 +14,7 @@
             </div>
 
                 <div class="profile flex flex-row justify-start ms-0">
-                    <img src="img/img-login.png
+                    <img src="{{asset('storage/' .$posts->postwriter->image)}}
                     "
                         alt=""class="rounded-circle img-fluid border border-solid border-white-250 w-10 h-10 me-2">
                     <div class="flex flex-col align-item justify-center">
@@ -36,7 +36,7 @@
         <div class="post my-3 mx-auto ">
             <div class="content ">
                 <div class="img">
-                    <img src=" {{ asset('/storage/' . $posts->image) }}" alt="" class=" w-full h-80 img-fluid  ">
+                    <img src=" {{ asset('storage/' . $posts->image) }}" alt="" class=" w-full h-80 img-fluid  ">
                 </div>
                 <div class="content-text mt-4">
                     <p class=" font-semibold">Deskripsi</p>
@@ -56,6 +56,10 @@
             </div>
         </div>
 
+        @if (Auth::user()->id == true)
+        @if (Auth::user()->status == true)
+
+
         <div class="btn_edit_post">
             <button onclick="location.href='{{ url('post/'.$posts->slug.'/edit') }}'"
                 class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Edit</button>
@@ -68,7 +72,9 @@
             </form>
         </div>
 
+        @endif
 
+        @endif
         <script src="sweetalert2.all.min.js">
             function archiveFunction() {
 event.preventDefault(); // prevent form submit

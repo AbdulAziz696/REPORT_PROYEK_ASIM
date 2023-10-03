@@ -15,7 +15,8 @@ class UserController extends Controller
     public function index(User $user)
     {
         //
-        $users = $user::all();
+        $users = User::where('role', 'intern')->get();
+
 
 
         return view('layouts.user.index', compact('users'));
@@ -69,8 +70,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        $post = User::findOrFail($id);
+        $post->delete();
+        return redirect('user');
     }
 }

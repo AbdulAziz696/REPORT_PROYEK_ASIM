@@ -24,6 +24,8 @@ return new class extends Migration
             $table->text('addres');
             $table->string('password');
             $table->string('image')->default('image_user.png')->nullable();
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
         });

@@ -172,7 +172,7 @@ class PostController extends Controller
 
         if ($request->hasFile('image')) {
             Storage::delete($posts->image);
-            $data['image'] = $request->file('image')->store('berita');
+            $data['image'] = $request->file('image')->store('report-image');
             $gambar = $request->file('image');
             $nama_gambar = time() . rand(1, 9) . '.' . $gambar->getClientOriginalExtension();
             $path = $gambar->storeAs('report-image', $nama_gambar);

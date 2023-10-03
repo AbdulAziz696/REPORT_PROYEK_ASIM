@@ -63,10 +63,10 @@
         @guest
         <!-- Tombol Login -->
         <button onclick="window.location.href='/masuk'" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-500">Login</button>
-    
+
         <!-- Tombol Sign Up -->
         <button onclick="window.location.href='/daftar'" class="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-green-500">Sign Up</button>
-        
+
         @else
         <div class="relative" x-data="{ open: false }">
           <button
@@ -75,11 +75,10 @@
               aria-haspopup="true"
               :aria-expanded="open ? 'true' : 'false'"
               class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100 flex items-center" <!-- Menambahkan class flex items-center -->
-          >
-              <img class="w-10 h-10 rounded-full" src="{{ asset('img/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}" />
+                        <img class="w-10 h-10 rounded-full" src="{{ asset('img/' . Auth::user()->image) }}" alt="{{ auth()->user()->name }}" />
               <span class="ml-2">{{ auth()->user()->name }}</span> <!-- Memindahkan ini ke samping kiri foto profil -->
           </button>
-      
+
           <!-- User dropdown menu -->
           <div
               x-show="open"
@@ -122,10 +121,10 @@
               </form>
           </div>
         </div>
-      
+
         @endguest
 
-        
+
 
       </nav>
 
@@ -270,7 +269,7 @@
             class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
           >
             <span class="sr-only">User menu</span>
-            <img class="w-10 h-10 rounded-full" src="build/images/avatar.jpg" alt="Ahmed Kamel" />
+            <img class="w-10 h-10 rounded-full" src="{{asset('storage/'. Auth::user()->image )}}" alt="Ahmed Kamel" />
           </button>
 
           <!-- User dropdown menu -->
