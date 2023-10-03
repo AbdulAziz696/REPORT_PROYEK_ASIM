@@ -1,11 +1,11 @@
 @extends('welcome')
 @section('main')
 
-    <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3 my-8">
+    <div class="bg-white">
         <h1 class="text-2xl font-semibold mb-4">Profil Pengguna</h1>
         <div class="flex flex-col items-center justify-center mb-6">
             <div class="rounded-full overflow-hidden w-24 h-24 mb-2">
-                <img src="/IMG/waifu.jpg" alt="Foto Profil" class="w-full h-full object-cover">
+            <img src="/IMG/waifu.jpg" alt="Foto Profil" class="w-full h-full object-cover">
             </div>
             <input type="file" id="foto" class="hidden" accept=".png, .jpg, .jpeg">
             <label for="foto" class="cursor-pointer text-red-500 hover:text-red-700">Ganti Foto Profil</label>
