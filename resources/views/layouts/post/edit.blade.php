@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label font-semibold">Konten</label>
-                <textarea class="form-control rounded-md" id="editor" name="content">{!! $edit_post->content !!}</textarea>
+                <textarea class="form-control rounded-md" id="content" name="content">{!! $edit_post->content !!}</textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label font-semibold">Gambar</label>

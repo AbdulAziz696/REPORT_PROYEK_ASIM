@@ -12,10 +12,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(User $user)
+    public function index()
     {
         //
         $users = User::where('role', 'intern')->get();
+
 
 
 

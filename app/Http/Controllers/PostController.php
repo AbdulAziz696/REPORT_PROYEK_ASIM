@@ -32,7 +32,7 @@ class PostController extends Controller
     public function home(Post $post, User $user)
     {
         $posts = $post::all();
-        $users = $user::all();
+        $users = User::where('role', 'intern')->get();
 
 
         return view('index', compact('posts','users'));

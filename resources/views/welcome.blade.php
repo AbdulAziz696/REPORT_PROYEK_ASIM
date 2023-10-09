@@ -20,7 +20,10 @@
     {{-- Link Tailwind CSS --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css">
+
 
 <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
@@ -34,12 +37,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     {{-- CK EDITOR --}}
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> --}}
 
     {{-- SweetAlert --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
  <script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">  --}}
+<link rel="stylesheet" href="sweetalert2.min.css">
 
 
 </head>
@@ -172,66 +176,68 @@
             $('#myTable').DataTable();
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+
 
     {{-- @endsection --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 
     <script>
         ClassicEditor
-            .create( document.querySelector( '#editor' ) )
+            .create( document.querySelector( '#content' ) )
             .catch( error => {console.error( error );
             } );
-            <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
   // get all delete buttons
-var deleteButtons = document.querySelectorAll('.buttondelete');
+  $('.buttondelete').click(function(){
+    var pegawaiid= $(this).attr('data-id');
+    var pegawainame= $(this).attr('data-name');
 
-// add an event listener to each delete button
-deleteButtons.forEach(function (deleteButton) {
-    deleteButton.addEventListener('click', function (e) {
-        e.preventDefault();
-        var id = deleteButton.dataset.id;
-        var name = deleteButton.dataset.nama;
-        swal({
-            title: "Are you sure?",
-            text: "You are about to delete " + name + ". This action cannot be undone!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel",
-            closeOnConfirm: true,
-            closeOnCancel: false
-        }).then(function (isConfirm) {
-            if (isConfirm) {
-                $.ajax({
-                    type: "DELETE",
-                    url: "{{ url('user') }}/" + id,
-                    data: {
-                        "_token": "{{ csrf_token() }}"
-                    },
-                    success: function (data) {
-                        // handle success response
-                    },
-                    error: function (xhr) {
-                        // handle error response
-                    }
-                });
-                swal("Deleted!", name + " has been deleted.", "success");
-            } else {
-                swal("Cancelled", name + " deletion has been cancelled.", "error");
-            }
-        });
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: true
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location : 'user/' + pegawaiid,
+            swal({
+                success: function (response) {
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'Your imaginary file is safe :)',
+                'error'
+            )
+        }
     });
-});
-        </script>
+})
 
+
+</script>
 
 </body>
-
 
 
 </html>

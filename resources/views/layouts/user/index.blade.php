@@ -46,8 +46,8 @@
                                     @if (Auth::user()->status == true)
                                         <div class="inline-flex">
 
-                                            <button data-modal-target="authentication-modal{{ $i->id }}"
-                                                data-modal-toggle="authentication-modal{{ $i->id }}"
+                                            <button data-modal-target="edit-modal{{ $i->id }}"
+                                                data-modal-toggle="edit-modal{{ $i->id }}"
                                                 class="block text-white mx-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                                 type="button">
                                                 edit
@@ -84,11 +84,11 @@
 
     </div>
 
-    
 
 
 
 
 
+{{-- @include('layouts.user.modal') --}}
 
 @endsection
