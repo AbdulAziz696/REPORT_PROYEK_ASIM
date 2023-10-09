@@ -76,4 +76,6 @@ class UserController extends Controller
         $post->delete();
         return redirect('user');
     }
+
+
 }

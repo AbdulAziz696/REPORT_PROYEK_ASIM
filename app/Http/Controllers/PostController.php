@@ -16,7 +16,9 @@ class PostController extends Controller
 
     public function profile()
     {
-        return view('layouts.user.user_profile');
+        $data_user = Auth::user();
+
+        return view('layouts.user.user_profile',compact('data_user'));
     }
     /**
      * Display a listing of the resource.

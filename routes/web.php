@@ -27,6 +27,8 @@ Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
 
 
+
+
 // Route::get('/register', function () {
 //     return view('auth.register');
 // });
