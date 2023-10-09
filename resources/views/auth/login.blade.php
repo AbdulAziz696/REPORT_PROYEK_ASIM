@@ -30,10 +30,10 @@
             <form action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-4">
-                    <label for="username" class="block text-gray-700 font-semibold">Username</label>
-                    <input type="text" name="email" id="username"
+                    <label for="Email" class="block text-gray-700 font-semibold">Email</label>
+                    <input type="text" name="email" id="Email"
                         class="mt-1 p-2 border rounded w-full focus:ring focus:ring-red-300"
-                        placeholder="Enter your username">
+                        placeholder="Enter your Email">
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block text-gray-700 font-semibold">Password</label>
