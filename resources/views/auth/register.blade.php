@@ -25,7 +25,7 @@
         <h4 class="text-gray-400">Mohon isi dengan lengkap</h4>
         </div>
 
-        <form action="{{ route('register') }}" method="POST">
+        <form action="{{ route('registerstudent') }}" method="POST">
             @csrf
             <div class="grid gap-6 mb-6 lg:grid-cols-2">
                 <div>

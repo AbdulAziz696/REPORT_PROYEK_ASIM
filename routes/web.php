@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/profile', [PostController::class, 'profile']);
-Route::get('/daftar', [PostController::class, 'daftar']);
+Route::get('/daftar', [ReRegistrationController::class, 'daftar']);
+Route::post('/registerstudent', [ReRegistrationController::class, 'registerstudent'])->name('registerstudent');
+Route::put('/profileupdate', [UserController::class, 'update'] )->name('updateprofile');
 Route::get('/masuk', [PostController::class, 'masuk']);
 Route::get('/', [PostController::class, 'home']);
 Route::get('/intern', [UserController::class, 'index']);

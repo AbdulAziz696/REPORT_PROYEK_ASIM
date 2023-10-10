@@ -44,7 +44,7 @@
     <script src="sweetalert2.all.min.js"></script>
  <script src="sweetalert2.min.js"></script>
 <link rel="stylesheet" href="sweetalert2.min.css">
-
+<script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
 
 </head>
 
@@ -59,13 +59,13 @@
             @include('layouts.components.sidebar')
 
             <!-- Navbar -->
-            <div class=" container flex flex-col flex-1 h-screen overflow-x-hidden justify-between overflow-y-auto ">
+            <div class=" container flex flex-col flex-1 h-screen overflow-x-hidden justify-between overflow-y-auto " x-data="layout">
                 @include('layouts.components.navbar')
 
 
 
                 <!-- Main content -->
-                <main class="container mb-auto ">
+                <main class="container mb-auto " ></main>
 
                     @yield('main')
                     {{-- @yield('main') --}}
@@ -236,6 +236,20 @@
 
 
 </script>
+
+<script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("layout", () => ({
+            profileOpen: false,
+            asideOpen: true,
+            toggleSidebar() {
+                this.asideOpen = !this.asideOpen;
+            }
+        }));
+    });
+</script>
+
+
 
 </body>
 

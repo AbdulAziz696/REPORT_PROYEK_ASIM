@@ -3,44 +3,42 @@
 
     
     <div class="bg-white">
-        <h1 class="text-2xl font-semibold mb-4">Profil Pengguna</h1>
-        <div class="flex flex-col items-center justify-center mb-6">
-            <div class="rounded-full overflow-hidden w-24 h-24 mb-2">
-            <img src="/IMG/waifu.jpg" alt="Foto Profil" class="w-full h-full object-cover">
+        <h1 class="text-2xl font-semibold mb-4">Profil Setting</h1>
+        
+        <form method="POST" action="{{ route('updateprofile') }}">
+            @csrf
+            @method('PUT')
+
+            <div class="mb-4">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="image" id="file_input" type="file" accept="image/*">
             </div>
-            <input type="file" id="foto" class="hidden" accept=".png, .jpg, .jpeg">
-            <label for="foto" class="cursor-pointer text-red-500 hover:text-red-700">Ganti Foto Profil</label>
-        </div>
-        <form>
-            {{-- @foreach($data_user as $ds) --}}
+
+        
             <div class="mb-4">
                 <label for="nama_lengkap" class="block text-gray-700 font-semibold">Nama Lengkap</label>
-                <input type="text" id="nama_lengkap" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $data_user->name }}" readonly>
+                <input type="text" id="nama_lengkap" name="name" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $data_user->name }}">
             </div>
-            <div class="mb-4">
-                <label for="password" class="block text-gray-700 font-semibold">Password</label>
-                <input type="password" id="password" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" placeholder="********" value="{{ $data_user->password }}" readonly>
-            </div>
+        
+
             <div class="mb-4">
                 <label for="alamat" class="block text-gray-700 font-semibold">Alamat</label>
-                <input type="text" id="alamat" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="Jl. Contoh No. 123" value="{{ $data_user->addres }}" readonly>
+                <input type="text" id="alamat" name="addres" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200"  value="{{ $data_user->addres }}">
             </div>
-            
+        
             <div class="mb-4">
                 <label for="kota" class="block text-gray-700 font-semibold">Kota</label>
-                <input type="text" id="kota" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $data_user->city }}" readonly>
+                <input type="text" id="kota" name="city" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $data_user->city }}">
             </div>
+        
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-semibold">Email</label>
-                <input type="email" id="email" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $data_user->email }}" readonly>
-            </div>            
-            {{-- <div class="mb-4">
-                <label for="no_telp" class="block text-gray-700 font-semibold">{{ $ds->no }}</label>
-                <input type="tel" id="no_telp" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="123-456-789">
-            </div> --}}
-            {{-- @endforeach --}}
+                <input type="email" id="email" name="email" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $data_user->email }}">
+            </div>
+        
             <button type="submit" class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 focus:outline-none focus:ring focus:ring-blue-200">Simpan Profil</button>
         </form>
+        
     </div>
 @endsection
 

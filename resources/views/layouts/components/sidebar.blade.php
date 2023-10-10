@@ -1,9 +1,9 @@
-<aside class="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block">
+<aside x-data="{asideOpen:true}" class="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block transition-all duration-200" :class="asideOpen?' w-52': ' w-0'">
     <div class="flex flex-col h-full">
       <!-- Sidebar links -->
       <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
         <!-- Dashboards links -->
-        <div x-data="{ isActive: true, open: true}">
+        <div x-data="{  : true, open: true}">
           <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
           <a
             href="#"

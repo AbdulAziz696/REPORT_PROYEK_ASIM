@@ -15,10 +15,10 @@
          </button>
 
          <!-- Brand -->
-         <a href="/"
-             class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light">
+         <button type="button"
+             class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light" @click="asideOpen = !asideOpen" >
              ASIM
-         </a>
+         </button>
 
          <!-- Mobile sub menu button -->
          <button @click="isMobileSubMenuOpen = !isMobileSubMenuOpen"
@@ -46,10 +46,6 @@
                  <button onclick="window.location.href='/masuk'"
                      class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-500">Login</button>
 
-                 <!-- Tombol Sign Up -->
-                 <button onclick="window.location.href='/daftar'"
-                     class="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-green-500">Sign
-                     Up</button>
              @else
                  <div class="relative" x-data="{ open: false }">
                      <button @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })" type="button"
@@ -83,7 +79,7 @@
                              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary">
                              Your Profile
                          </a>
-                         <a href="" role="menuitem"
+                         <a href="{{ url('/profile') }}" role="menuitem"
                              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary">
                              Settings
                          </a>
