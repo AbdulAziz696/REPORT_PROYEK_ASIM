@@ -22,10 +22,15 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|min:5|max:100',
-            'content' => 'required|min:5|max:1000',
-            'url' => 'required|min:5|max:1000',
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+            'name' => 'required|string|max:255',
+            'password' => 'nullable|string|min:8|confirmed',
+            'addres' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'status' => 'required|enum|accepted|in:status_option1,status_option2',
+            'updated_at' => 'required|date_format:format',
+            'status' => 'required|enum|accepted',
+            'email' => 'required|string|email|max:255|unique:users,email,' . auth()->user()->id,
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ];
     }
 }

@@ -1,9 +1,11 @@
 @extends('welcome')
+@section('title', 'Edit Post')
+
 @section('main')
     <div class="container">
 
 
-        <p class="my-3 font-bold text-2xl">Edit Post</p>
+        < class="my-3 font-bold text-2xl"></
 
         <form method="post" action="
     {{ url("post/$edit_post->slug/edit-post") }}
@@ -27,7 +29,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label font-semibold">Gambar</label>
-                <input type='file' class="form-control border-gray-700 border-1" rows="3" name="image" value="{{$edit_post->image}}"
+                <input type='file' class="form-control border-gray-700 border-1" rows="3" name="image" value="{!! $edit_post->image !!}"
                     accept="image/*">
             </div>
             <div class="mb-3">

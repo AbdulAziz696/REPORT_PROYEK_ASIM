@@ -1,5 +1,7 @@
 @extends('welcome')
-@section('post-detail')
+@section('title','| Post Detail')
+
+@section('main')
 
     <div class=" mx-5 my-3 justify-start">
 
@@ -35,7 +37,7 @@
         <div class="post my-3 mx-auto ">
             <div class="content ">
                 <div class="img">
-                    <img src=" {{ asset('storage/' . $posts->image) }}" alt="" class=" w-full h-32 img-fluid  ">
+                    <img src=" {{ asset('storage/' . $posts->image) }}" alt="" class=" max-w-screen-lg max-h-96 w-full h-96 img-fluid  ">
                 </div>
                 <div class="content-text mt-4">
                     <p class=" font-semibold">Deskripsi</p>
@@ -78,29 +80,4 @@
         @endif
 
 
-
-        {{-- <script src="sweetalert2.all.min.js">
-            function archiveFunction() {
-event.preventDefault(); // prevent form submit
-var form = event.target.form; // storing the form
-        swal({
-  title: "Are you sure?",
-  text: "But you will still be able to retrieve this file.",
-  type: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#DD6B55",
-  confirmButtonText: "Yes, archive it!",
-  cancelButtonText: "No, cancel please!",
-  closeOnConfirm: false,
-  closeOnCancel: false
-},
-function(isConfirm){
-  if (isConfirm) {
-    form.submit();          // submitting the form when user press yes
-  } else {
-    swal("Cancelled", "Your imaginary file is safe :)", "error");
-  }
-});
-}
-        </script> --}}
     @endsection

@@ -23,7 +23,7 @@
 
     <!-- Main Content -->
     <div class="flex justify-center items-center">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4 animate-fadeIn mt-8 mx-4">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4ani mate-fadeIn mt-8 mx-4">
             <!-- Tambahkan mx-4 di sini -->
             <h1 class="text-2xl md:text-3xl font-semibold text-red-500 mb-2">Selamat Datang</h1>
             <p class="text-gray-600 mb-4">Silahkan masuk untuk melanjutkan</p>

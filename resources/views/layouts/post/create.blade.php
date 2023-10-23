@@ -1,7 +1,8 @@
 @extends('welcome')
+@section('title','| Buat Post Baru')
 @section('main')
-    <div class="container">
-        <p class="my-3 font-bold text-2xl">Buat Post Baru</p>
+    <div class="container m-3">
+        
 
         <form method="POST" action="{{ url('post/add-post') }}" enctype="multipart/form-data">
             @csrf
@@ -16,7 +17,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label font-semibold">Konten</label>
-                <textarea class="form-control rounded-md" id="editor" name="content"></textarea>
+                <textarea class="form-control rounded-md" id="content" name="content"></textarea>
                 @error('content')
                 <span class="text-danger">
                     {{ $message }}

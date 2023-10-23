@@ -10,17 +10,21 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </head>
-<body>
+<body class="bg-gray-100">
+
+    <nav class="flex justify-between p-4 bg-white">
+        <img src="/IMG/logo-telkomsat.png" alt="Left Logo" class="w-20 h-10">
+        <img src="/IMG/logo-telkomsat.png" alt="Right Logo" class="w-20 h-10">
+    </nav>
 
     <!-- Title "Asim" -->
     <div class="text-center mt-12">
-        <h1 class="text-2xl md:text-4xl font-bold text-black">Daftar Sekarang & nikmati </h1>
-        <p class="text-2xl md:text-4xl font-bold text-black">berbagai fitur eksklusif</p>
+        <h1 class="text-2xl md:text-4xl font-semibold text-red-500">Sistem Informasi Magang IT Telkomsat</h1>
     </div>
+ 
+    <div class="max-w-2xl mt-4 mx-auto rounded-lg shadow-md animate-fadeIn bg-white p-16">
 
-    <div class="max-w-2xl mx-auto bg-white p-16">
-
-        <div class="mb-4">
+        <div class=" mt-0 mb-3">
             <h1 class="text-black font-bold">Buat Akun Baru</h1>
         <h4 class="text-gray-400">Mohon isi dengan lengkap</h4>
         </div>

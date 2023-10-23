@@ -31,7 +31,7 @@ class PostController extends Controller
     }
     public function home(Post $post, User $user)
     {
-        $posts = $post::all();
+        $posts = $post::inRandomOrder()->get();;
         $users = User::where('role', 'intern')->get();
 
 
@@ -110,6 +110,8 @@ class PostController extends Controller
      */
     public function store(Post $post, StorepostRequest $request)
     {
+        $user=Auth::user()->slug;
+
         $post = $post::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
@@ -127,7 +129,7 @@ class PostController extends Controller
             $post->save();
         }
 
-        return redirect()->back();
+        return redirect('user/'.$user.'/profile');
 
         //
     }
@@ -161,7 +163,7 @@ class PostController extends Controller
      */
     public function update(UpdatepostRequest $request, Post $post, $slug)
     {
-        //
+        $user=Auth::user()->slug;
         $posts = $post::where('slug', $slug)->firstOrFail();
         $posts->slug = null;
 
@@ -180,11 +182,14 @@ class PostController extends Controller
             $path = $gambar->storeAs('report-image', $nama_gambar);
             $data['image'] = $path;
 
+        }else {
+            
+            $data['image'] = $posts->image;
         }
 
         $posts->update($data);
 
-        return redirect("post");
+        return redirect('user/'.$user.'/profile');
     }
 
     /**
@@ -192,11 +197,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = User::findOrFail($id);
+        $post = Post::findOrFail($id);
             $post->delete();
 
         return redirect('post');
-    }
+    }}
 
 
-}
+

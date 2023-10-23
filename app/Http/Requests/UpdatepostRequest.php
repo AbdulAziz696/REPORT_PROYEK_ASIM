@@ -25,7 +25,7 @@ class UpdatepostRequest extends FormRequest
             'title' => 'required|min:5|max:100',
             'content' => 'required|min:5|max:1000',
             'url' => 'required|min:5|max:1000',
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048'
         ];
     }
 }

@@ -1,18 +1,9 @@
 @extends('welcome')
-
+@section('title', '| Dashboard')
 @section('main')
 
  <!-- Content header -->
- <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-    <h1 class="text-2xl font-semibold">Dashboard</h1>
-    {{-- <a
-      href="https://github.com/Kamona-WD/kwd-dashboard"
-      target="_blank"
-      class="px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-    >
-      View on github
-    </a> --}}
-  </div>
+
 
   <!-- Content -->
   <div class="mt-2">
@@ -31,28 +22,14 @@
             +4.4%
           </span> --}}
         </div>
-        <div>
-          <span>
-            <svg
-              class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </span>
-        </div>
+        <div class=" ">
+          
+          <i class="uil uil-clipboard-notes text-gray-300 text-6xl "></i>     
+              </div>
       </div>
 
       <!-- Users card -->
-      <div class="border border-gray-400 flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+      <div class="border border-gray-400 flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker md">
         <div>
           <h6
             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
@@ -84,4 +61,57 @@
         </div>
       </div>
   </div>
-@endsection
+  </div>
+
+  <div class="main  justify-center -mx-24 md:container md:mx-auto">
+    <div class="container grid grid-cols-3 justify-left ">
+
+@foreach ($posts->take(6) as $i)
+
+    <div class=" bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4 ">
+        <div class=" w-38 h-38 mx-8 -mt-12 flex justify-center">
+            <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src=" {{ asset('storage/' . $i->image) }}" />
+
+ </div>
+        <div class="mt-4 mx-8 justify-center">
+            <h1 class="font-bold text-xl text-black text-center">{{$i->title}}</h1>
+        </div>
+        <div class="mx-7 my-3">
+            <button onclick="location.href='post/{{$i->slug }}/detail'"
+                class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Detail Aplikasi</button>
+        </div>
+    </div>
+
+    @endforeach
+  </div>
+
+    @if ($posts->count() > 6)
+
+        <div class=" relative block w-full my-2 col-span-full ">
+            <a class=" absolute  btn block bg-blue-600 text-white w-full  top-50 start-50 translate-middle" id="showAllPost">Show All Posts</a>
+        </div>
+
+        <div id="hiddenPost" style="display: none;" class="grid grid-cols-3 justify-left " >
+            @foreach ($posts->skip(6) as $i)
+            <div class=" bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4  ">
+                <div class=" w-38 h-38 mx-8 -mt-12 flex justify-center">
+                    <img class="w-[200.40px] h-[200.40px] rounded-[19.66px]" src=" {{ asset('storage/' . $i->image) }}" />
+
+         </div>
+                <div class="mt-4 mx-8 justify-center">
+                    <h1 class="font-bold text-xl text-black text-center">{{$i->title}}</h1>
+                </div>
+                <div class="mx-7 my-3">
+                    <button onclick="location.href='post/{{$i->slug }}/detail'"
+                        class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Detail Aplikasi</button>
+                </div>
+            </div>
+            @endforeach
+        </div>
+@endif
+
+
+
+        </div>
+
+    @endsection

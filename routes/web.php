@@ -20,10 +20,9 @@ use App\Http\Controllers\ReRegistrationController;
 //     return view('index');
 // });
 
-Route::get('/profile', [PostController::class, 'profile']);
 Route::get('/daftar', [ReRegistrationController::class, 'daftar']);
 Route::post('/registerstudent', [ReRegistrationController::class, 'registerstudent'])->name('registerstudent');
-Route::put('/profileupdate', [UserController::class, 'update'] )->name('updateprofile');
+
 Route::get('/masuk', [PostController::class, 'masuk']);
 Route::get('/', [PostController::class, 'home']);
 Route::get('/intern', [UserController::class, 'index']);
@@ -42,14 +41,15 @@ Route::get('/project_report', [PostController::class, 'project_report']);
 
 Route::prefix('user')->group(function(){
 
-    Route::get('/', function () {
-        return view('layouts.user.index');
-    });
-    Route::get('/edit', function () {
-        return view('layouts.post.edit');
-    });
-    Route::get('{slug}/detail', [UserController::class,'show']
-    )->name('user.detail ');
+    // Route::get('/',[UserController::class,'index']);
+
+    Route::get('{slug}/profile/settings', [UserController::class, 'setting']);
+
+    Route::put('{slug}/status/update', [UserController::class, 'updateStatus']);
+    Route::put('{slug}/profile/settings/update', [UserController::class, 'update'] );
+
+    Route::get('{slug}/profile', [UserController::class,'show']
+    )->name('user.detail');
 
     Route::delete('{id}', [UserController::class, 'destroy']);
 

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="build/css/tailwind.css" />
+
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 
@@ -36,13 +37,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
+    {{-- icons --}}
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
     {{-- CK EDITOR --}}
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
     {{-- SweetAlert --}}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
- <script src="sweetalert2.min.js"></script>
+
 <link rel="stylesheet" href="sweetalert2.min.css">
 <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
 
@@ -59,17 +61,17 @@
             @include('layouts.components.sidebar')
 
             <!-- Navbar -->
-            <div class=" container flex flex-col flex-1 h-screen overflow-x-hidden justify-between overflow-y-auto " x-data="layout">
+            <div class=" container flex flex-col flex-1 h-screen overflow-x-hidden justify-between overflow-y-auto ">
                 @include('layouts.components.navbar')
 
 
 
                 <!-- Main content -->
-                <main class="container mb-auto " ></main>
+                <main class="container mb-auto  ">
 
                     @yield('main')
-                    {{-- @yield('main') --}}
-                    @yield('post-detail')
+
+                  
 
 
 
@@ -181,7 +183,7 @@
 
 
     {{-- @endsection --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
     <script>
         ClassicEditor
@@ -190,64 +192,24 @@
             } );
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-<script type="text/javascript">
-  // get all delete buttons
-  $('.buttondelete').click(function(){
-    var pegawaiid= $(this).attr('data-id');
-    var pegawainame= $(this).attr('data-name');
-
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-success',
-            cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: true
-    })
-
-    swalWithBootstrapButtons.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location : 'user/' + pegawaiid,
-            swal({
-                success: function (response) {
-                    swalWithBootstrapButtons.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                }
-            });
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-            swalWithBootstrapButtons.fire(
-                'Cancelled',
-                'Your imaginary file is safe :)',
-                'error'
-            )
-        }
-    });
-})
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="sweetalert2.min.js"></script>
 
 
-</script>
+
+
+
 
 <script>
-    document.addEventListener("alpine:init", () => {
-        Alpine.data("layout", () => ({
-            profileOpen: false,
-            asideOpen: true,
-            toggleSidebar() {
-                this.asideOpen = !this.asideOpen;
-            }
-        }));
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("showAllPost").addEventListener("click", function() {
+            document.getElementById("hiddenPost").style = "display:grid;";
+            this.style.display = "none";
+        });
     });
 </script>
+
 
 
 
