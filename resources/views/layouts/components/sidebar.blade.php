@@ -67,6 +67,13 @@
           >
               Project Report
           </a>
+          <a
+              href="{{url('infografis')}}"
+              role="menuitem"
+              class="block p-2 text-sm {{ Request::is('infografis*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light"
+          >
+              Info Grafis
+          </a>
       </div>
 
       </div>

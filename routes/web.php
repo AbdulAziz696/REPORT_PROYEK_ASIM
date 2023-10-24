@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InfografisController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ReRegistrationController;
 
 /*
@@ -27,6 +29,8 @@ Route::get('/masuk', [PostController::class, 'masuk']);
 Route::get('/', [PostController::class, 'home']);
 Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
+Route::get('/infografis', [InfografisController::class, 'index']);
+
 
 
 

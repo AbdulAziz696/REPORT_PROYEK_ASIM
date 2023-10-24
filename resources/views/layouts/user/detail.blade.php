@@ -111,29 +111,24 @@
         <a href="{{url('post/add')}}" class="btn bg-green-600 w-full text-white">Add project</a>
             @endif
             @endif
+
     </div>
 
-    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="portofolio" role="tabpanel" aria-labelledby="portofolio-tab">
-        
     
+</div>
 
-            
-    </div>
+<div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="portofolio" role="tabpanel" aria-labelledby="portofolio-tab">
+
+    <p>Ini adalah bagian portofolio</p>
 
 </div>
 
 
 
 
-{{-- <div class="inline-flex"> --}}
-
-<div class="main inline-flex justify-center mx-auto md:container md:mx-auto">
-
-
-</div>
-
 </div>
 </div>
+
 {{-- </div> --}}
 
 
