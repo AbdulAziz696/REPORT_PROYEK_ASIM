@@ -17,7 +17,7 @@
 
                 <div class="profile flex flex-row justify-start ms-0">
                     <img src="{{asset('img/'. $posts->postwriter->image)}}
-                    " alt=""class="rounded-circle img-fluid border border-solid border-white-250 w-10 h-10 me-2">
+                    " alt=""class="  rounded-circle img-fluid border border-solid border-white-250 w-10 h-10 me-2">
                     <div class="flex flex-col align-item justify-center">
                         <p class="text-xs font-semibold">{{$posts->postwriter->name}}</p>
                         <p class="text-xs">{{$posts->postwriter->role}}</p>

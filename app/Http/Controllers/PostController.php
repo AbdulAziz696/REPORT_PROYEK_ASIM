@@ -49,7 +49,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('layouts.post.create');
+    $user= User::all();
+
+        return view('layouts.post.create',compact('user'));
         //
     }
 
@@ -110,13 +112,15 @@ class PostController extends Controller
      */
     public function store(Post $post, StorepostRequest $request)
     {
-        $user=Auth::user()->slug;
+        $user=Auth::user();
 
+        $made_by=$request->input('made_by');
         $post = $post::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'url' => $request->input('url'),
             'user_id' => Auth::user()->id,
+            'made_by' =>json_encode($made_by),
 
         ]);
 
@@ -129,7 +133,7 @@ class PostController extends Controller
             $post->save();
         }
 
-        return redirect('user/'.$user.'/profile');
+        return redirect('user/'.$user->slug.'/profile');
 
         //
     }
@@ -137,12 +141,26 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
+
+    // $user_name = User::whereIn('id', $post->made_by)->get();
+
+
+
+
+
+
     public function show(Post $post, $slug)
     {
-        //
         $posts = $post::where('slug', $slug)->first();
 
-        return view('layouts.post.detail',compact('posts')
+        // $user_name = [];
+        // if ($posts->made_by) {
+            // $userIds = explode(',', $posts->made_by);
+            $user_name = User::selectById('id', $posts->made_by)->get();
+        // }
+
+        // ddd($user_name);
+        return view('layouts.post.detail',compact('posts', 'user_name')
         );
     }
 
@@ -183,7 +201,7 @@ class PostController extends Controller
             $data['image'] = $path;
 
         }else {
-            
+
             $data['image'] = $posts->image;
         }
 

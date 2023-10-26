@@ -47,11 +47,10 @@ class UserController extends Controller
      */
     public function show(User $user, Post $post, $slug)
     {
-        // $data_user = Auth::user();
         $user = $user::where('slug', $slug)->firstOrFail();
         $posts = $post::where('user_id', $user->id)->get();
 
-        return view('layouts.user.detail', compact('user', 'posts', ));
+        return view('layouts.user.detail', compact('user', 'posts' ));
     }
 
 
@@ -82,17 +81,17 @@ class UserController extends Controller
     $user = Auth::user()->slug;
     $users = User::where('slug', $slug)->firstOrFail();
     $users->slug = null;
-    
+
     $slug = Str::slug($request->input('name'));
     $data = [
         'name' => $request->input('name'),
-        'addres' => $request->input('addres'),
-        'city' => $request->input('city'),
+        // 'addres' => $request->input('addres'),
+        // 'city' => $request->input('city'),
         'email' => $request->input('email'),
         'slug' => $slug,
-        
+
     ];
-    
+
     if ($request->hasFile('image')) {
         // Jika ada gambar yang diunggah, proses dan simpan gambar baru
         Storage::delete($users->image);
@@ -104,11 +103,11 @@ class UserController extends Controller
         // Jika tidak ada gambar yang diunggah, maka gunakan gambar yang sudah ada
         $data['image'] = $users->image;
     }
-    
+
     $users->update($data);
-    
+
     return redirect('/');
-    
+
     }
 
     public function updateStatus(Request $request, $slug)

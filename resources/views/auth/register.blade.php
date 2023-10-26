@@ -21,7 +21,7 @@
     <div class="text-center mt-12">
         <h1 class="text-2xl md:text-4xl font-semibold text-red-500">Sistem Informasi Magang IT Telkomsat</h1>
     </div>
- 
+
     <div class="max-w-2xl mt-4 mx-auto rounded-lg shadow-md animate-fadeIn bg-white p-16">
 
         <div class=" mt-0 mb-3">
@@ -34,34 +34,18 @@
             <div class="grid gap-6 mb-6 lg:grid-cols-2">
                 <div>
                     <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
-                    <input type="text" id="first_name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Abdul Aziz" required>
+                    <input type="text" id="first_name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username" required>
                     @error('name')
                     <span class="text-danger">
                         {{ $message }}
                     </span>
                     @enderror
                 </div>
-                <div>
-                    <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat Lengkap</label>
-                    <input type="text" id="last_name" name="addres" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Gedung Perkantoran ABC, Lantai 5, Suite 567" required>
-                    @error('addres')
-                    <span class="text-danger">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                </div>
-                <div>
-                    <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kota</label>
-                    <input type="text" id="city" name="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jakarta" required>
-                    @error('city')
-                    <span class="text-danger">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                </div>
+
+
                 <div>
                     <label for="website" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-                    <input type="email" id="website" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="johndoe@gmail.com" required>
+                    <input type="email" id="website" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="a***@gmail.com" required>
                     @error('email')
                     <span class="text-danger">
                         {{ $message }}
@@ -76,7 +60,7 @@
                         {{ $message }}
                     </span>
                     @enderror
-                    
+
                 </div> --}}
                 <div>
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
@@ -87,7 +71,7 @@
                     </span>
                     @enderror
                 </div>
-                
+
                 <div>
                     <label for="confirmPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Konfirmasi Password</label>
                     <input type="password" id="confirmPassword" name="password_confirmation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="********" required>

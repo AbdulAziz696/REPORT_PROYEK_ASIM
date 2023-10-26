@@ -12,7 +12,7 @@
             <img src="{{asset('img/img-login.png')}}" alt="" class="object-cover h-48 w-full">
         </div>
         <div class="card-img  text-white text-center -mt-10">
-            
+
 
             @if (file_exists(public_path('storage/'.$user->image)))
     <!-- Gambar dari folder storage -->
@@ -21,13 +21,13 @@
     <!-- Gambar dari folder image -->
     <img src="{{ asset('img/'.$user->image) }}" alt="Gambar dari Folder Image" class="img-user rounded-full  w-24  h-24   border border-solid border-white-25 mx-auto">
 @endif
-            
+
             {{-- <img src="{{ asset('storage/'.$user->image)}}" alt="" class="img-user rounded-full  w-24  h-24   border border-solid border-white-25 mx-auto">
 
            --}}
-           
 
-            
+
+
       </div>
       <h2 class="txt-username text-center">{{$user->name}}</h2>
     </div>
@@ -82,7 +82,7 @@
             @foreach ($posts as $i)
             <div class="card bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4 ">
                 <div class="relative w-48 h-48 mx-8 -mt-12">
-                    <img class="w-[200.40px] h-[200.40px] rounded-[19.66px] img-fluid" src="{{url('storage/' . $i->image) }}" />
+                    <img class=" object-contain w-[200.40px] h-[200.40px] rounded-[19.66px] img-fluid" src="{{url('storage/' . $i->image) }}" />
                     {{-- <div
                         class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 translate-y-[-50%] w-24 h-24 rounded-full overflow-hidden">
                         {{-- <img src="img/img-login.png" alt="Profile" class="w-full h-full"> --}}
@@ -114,7 +114,7 @@
 
     </div>
 
-    
+
 </div>
 
 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="portofolio" role="tabpanel" aria-labelledby="portofolio-tab">

@@ -22,7 +22,7 @@
             </div>
 
 
-            <div class="mb-4">
+            {{-- <div class="mb-4">
                 <label for="alamat" class="block text-gray-700 font-semibold">Alamat</label>
                 <input type="text" id="alamat" name="addres" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200"  value="{{ $data_user->addres }}">
             </div>
@@ -30,7 +30,7 @@
             <div class="mb-4">
                 <label for="kota" class="block text-gray-700 font-semibold">Kota</label>
                 <input type="text" id="kota" name="city" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $data_user->city }}">
-            </div>
+            </div> --}}
 
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-semibold">Email</label>

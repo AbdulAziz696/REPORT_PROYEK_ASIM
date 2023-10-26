@@ -2,7 +2,7 @@
 @section('title','| Buat Post Baru')
 @section('main')
     <div class="container m-3">
-        
+
 
         <form method="POST" action="{{ url('post/add-post') }}" enctype="multipart/form-data">
             @csrf
@@ -36,6 +36,17 @@
             <div class="mb-3">
                 <label for="url" class="form-label font-semibold">URL</label>
                 <input type="text" class="form-control rounded-md" id="url" name="url">
+                @error('url')
+                <span class="text-danger">
+                    {{ $message }}
+                </span>
+            @enderror
+            </div>
+            <div class="mb-3">
+                <label for="url" class="form-label font-semibold block">URL</label>
+                @foreach($user as $user)
+                <input type="checkbox" name="made_by[]" value="{{ $user->id }}"> {{ $user->name }}<br>
+                @endforeach
                 @error('url')
                 <span class="text-danger">
                     {{ $message }}

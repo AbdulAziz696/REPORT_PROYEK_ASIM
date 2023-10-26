@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Infografis;
+use App\Models\biodata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class InfografisController extends Controller
+class BiodataController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('layouts.infografis.index');
+        //
     }
 
     /**
@@ -21,8 +21,6 @@ class InfografisController extends Controller
      */
     public function create()
     {
-        return view('layouts.infografis.create');
-
         //
     }
 
@@ -33,10 +31,9 @@ class InfografisController extends Controller
     {
         $user=Auth::user()->slug;
 
-        $post = Infografis::create([
+        $post = biodata::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'url' => $request->input('url'),
             'url' => $request->input('url'),
             'user_id' => Auth::user()->id,
 
@@ -52,13 +49,14 @@ class InfografisController extends Controller
         }
 
         return redirect('user/'.$user.'/profile');
+
         //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Infografis $infografis)
+    public function show(biodata $biodata)
     {
         //
     }
@@ -66,7 +64,7 @@ class InfografisController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Infografis $infografis)
+    public function edit(biodata $biodata)
     {
         //
     }
@@ -74,7 +72,7 @@ class InfografisController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Infografis $infografis)
+    public function update(Request $request, biodata $biodata)
     {
         //
     }
@@ -82,7 +80,7 @@ class InfografisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Infografis $infografis)
+    public function destroy(biodata $biodata)
     {
         //
     }

@@ -12,6 +12,11 @@ class Post extends Model
 
 
     protected $guarded = [];
+    protected $casts = [
+        'made_by' => 'array',
+    ];
+
+
 
 
     public function sluggable(): array

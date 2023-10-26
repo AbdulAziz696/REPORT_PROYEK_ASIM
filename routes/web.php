@@ -86,3 +86,20 @@ Route::prefix('post')->group(function(){
     Route::delete('{id}', [PostController::class, 'destroy']);
 });
 
+Route::prefix('infografis')->group(function(){
+
+    Route::get('', [PostController::class,'index']);
+
+    // Route::get('search', [PostController::class,'search'])->name('search');
+
+    Route::get('{slug}/detail', [PostController::class,'show']);
+
+    Route::get('add',[InfografisController::class,'create']);
+    Route::post('add-post',[PostController::class,'store']);
+
+    Route::get('{slug}/edit',[PostController::class,'edit']);
+    Route::patch('{slug}/edit-post',[PostController::class,'update']);
+
+    Route::delete('{id}', [PostController::class, 'destroy']);
+});
+

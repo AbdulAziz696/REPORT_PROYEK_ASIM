@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('url')->nullable();
             $table->string('slug')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->string('image')->nullable()->nullable();
+            $table->string('image')->nullable();
+            $table->json('made_by')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

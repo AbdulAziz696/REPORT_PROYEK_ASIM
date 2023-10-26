@@ -32,8 +32,7 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'password' => $this->passwordRules(),
             // 'phone' => ['required','string','min:8','max:11'],
-            'city' => ['required', 'string', 'max:255'],
-            'addres' => ['required', 'string', 'max:255'],
+
         ])->validate();
 
         $slug = SlugService::createSlug(User::class, 'slug', $input['name']);
@@ -45,8 +44,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             // 'phone' => $input['phone'],
-            'city' => $input['city'],
-            'addres' => $input['addres'],
+            
 
         ]);
     }

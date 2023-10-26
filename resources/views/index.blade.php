@@ -23,8 +23,8 @@
           </span> --}}
         </div>
         <div class=" ">
-          
-          <i class="uil uil-clipboard-notes text-gray-300 text-6xl "></i>     
+
+          <i class="uil uil-clipboard-notes text-gray-300 text-6xl "></i>
               </div>
       </div>
 
@@ -64,7 +64,7 @@
   </div>
 
   <div class="main  justify-center -mx-24 md:container md:mx-auto">
-    <div class="container grid grid-cols-3 justify-left ">
+    <div class="container grid lg:grid-cols-3 sm:grid-cols-2 justify-left ">
 
 @foreach ($posts->take(6) as $i)
 

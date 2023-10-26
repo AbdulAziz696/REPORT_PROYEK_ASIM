@@ -20,19 +20,24 @@
                 <form class="space-y-6" action="{{ url('user/'.$i->slug.'/status/update') }}" method="POST">
                     @method('PUT')
                     @csrf
-                    
+
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 text-left">Name</label>
                         <input type="text"  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 " value="{{$i->name}}" readonly>
                     </div>
-                    
+
                     <div>
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 text-left">Status</label>
-                        <select name="status" required="required" class="js-states form-control" style="width: 100%; margin: 6px 12px;">
+
+                        <option value="">-- status --</option>
+                                @foreach ($pasien as $row)
+                                <option value="{{$i->id}}">{{$i->nama_pasien}}</option>
+                                @endforeach
+                        {{-- <select name="status" required="required" class="js-states form-control" style="width: 100%; margin: 6px 12px;">
                             <option value="active" {{ $i->status === 'active' ? 'selected' : '' }}>Active</option>
                             <option value="inactive" {{ $i->status === 'inactive' ? 'selected' : '' }}>Inactive</option>
-                        </select>
-                        
+                        </select> --}}
+
                     </div>
 
                     <button type="submit"

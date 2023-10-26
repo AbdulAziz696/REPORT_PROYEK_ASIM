@@ -1,5 +1,5 @@
 @extends('welcome')
-@section('title','Intern List')
+@section('title','| Intern List')
 @section('main')
 
 

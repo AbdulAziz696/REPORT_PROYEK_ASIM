@@ -1,8 +1,8 @@
 @extends('welcome')
-@section('title', '| Project List')
+@section('title', '| Infografis List')
 
 @section('main')
 
 
-   
+
 @endsection
