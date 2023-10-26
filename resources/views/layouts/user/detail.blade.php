@@ -72,6 +72,15 @@
         @if (Auth::check())
         @if (Auth::user()->id == $user->id)
         <a href="{{ url('user/'.auth()->user()->slug.'/profile/settings') }}" class="btn bg-blue-600 w-full text-white">Edit Profile</a>
+
+        <button data-modal-target="bio-modal{{ $user->id }}"
+            data-modal-toggle="bio-modal{{ $user->id }}"
+            class="btn block w-full text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button">
+            edit
+        </button>
+        @include('layouts.user.bio_modal')
+
         @endif
         @endif
 

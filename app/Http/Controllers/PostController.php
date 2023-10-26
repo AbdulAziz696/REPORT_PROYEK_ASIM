@@ -114,6 +114,7 @@ class PostController extends Controller
     {
         $user=Auth::user();
 
+
         $made_by=$request->input('made_by');
         $post = $post::create([
             'title' => $request->input('title'),
@@ -151,17 +152,26 @@ class PostController extends Controller
 
     public function show(Post $post, $slug)
     {
+
+
+        
         $posts = $post::where('slug', $slug)->first();
+        // $user_name = User::whereIn('id', $posts->made_by)->get();
+        // $user_name = [];
+        // if ($posts->made_by) {
+            $userIds = $posts->made_by;
+            // $user_name = User::whereIn('id', $userIds)->get();
+        // }
 
         // $user_name = [];
         // if ($posts->made_by) {
             // $userIds = explode(',', $posts->made_by);
-            $user_name = User::selectById('id', $posts->made_by)->get();
         // }
+        dd($userIds);
 
         // ddd($user_name);
-        return view('layouts.post.detail',compact('posts', 'user_name')
-        );
+        // return view('layouts.post.detail',compact('posts', 'user_name')
+        // );
     }
 
     /**
