@@ -11,9 +11,30 @@ class BiodataController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = new Data;
+
+        $data->nama_pangggilan = $request->input('nama_panggilan');
+        $data->tempat_lahir = $request->input('tempat_lahir');
+        $data->tanggal_lahir = $request->input('tanggal_lahir');
+        $data->waktu_magang = $request->input('waktu_magang');
+        $data->lama_waktu_magang = $request->input('lama_waktu_magang');
+        $data->jurusan_sekolah = $request->input('jurusan_sekolah');
+        $data->alamat_domisili = $request->input('alamat_domisili');
+        $data->nama_sekolah = $request->input('nama_sekolah');
+        $data->alamat_sekolah = $request->input('alamat_sekolah');
+        $data->hobi = $request->input('hobi');
+        $data->penghargaan = json_encode($request->input('penghargaan'));
+        $data->serifikasi = json_encode($request->input('serifikasi'));
+        $data->keahlian_khusus = json_encode($request->input('keahlian_khusus'));
+        $data->no_hp = json_encode($request->input('no_hp'));
+        $data->no_hp_wali = json_encode($request->input('no_hp_wali'));
+        $data->harapan_magang = json_encode($request->input('harapan_magang'));
+
+        $data->save();
+
+        return redirect()->route('data.index')->with('success', 'Data berhasil disimpan');
     }
 
     /**
