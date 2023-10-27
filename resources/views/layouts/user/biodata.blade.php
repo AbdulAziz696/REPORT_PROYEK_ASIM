@@ -29,7 +29,7 @@
         <h4 class="text-gray-400">Mohon isi dengan lengkap</h4>
         </div>
 
-        <form action="{{ route('registerstudent') }}" method="POST">
+        <form action="{{ route('registerstudent') }}" method="POST" enctype="multipart/form-data">
             <div class="grid gap-6 mb-6 lg:grid-cols-2">
                 <div>
                     <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>

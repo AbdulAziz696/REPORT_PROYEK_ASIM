@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\InfografisController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ReRegistrationController;
@@ -24,12 +25,14 @@ use App\Http\Controllers\ReRegistrationController;
 
 Route::get('/daftar', [ReRegistrationController::class, 'daftar']);
 Route::post('/registerstudent', [ReRegistrationController::class, 'registerstudent'])->name('registerstudent');
-
 Route::get('/masuk', [PostController::class, 'masuk']);
-Route::get('/', [PostController::class, 'home']);
+Route::get('/', [PostController::class, 'home'])->name('home');
 Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
 Route::get('/infografis', [InfografisController::class, 'index']);
+Route::post('/data/store', [BiodataController::class, 'index'])->name('data.store');
+
+
 
 
 
@@ -43,9 +46,13 @@ Route::get('/infografis', [InfografisController::class, 'index']);
 // });
 
 
+Route::get('dummy', [BiodataController::class,'dummy'],);
+
 Route::prefix('user')->group(function(){
 
     // Route::get('/',[UserController::class,'index']);
+
+
 
     Route::get('{slug}/profile/settings', [UserController::class, 'setting']);
 

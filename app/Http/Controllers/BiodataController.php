@@ -13,28 +13,51 @@ class BiodataController extends Controller
      */
     public function index(Request $request)
     {
-        $data = new Data;
+    // $request->validate([
+    //     'nama_pangggilan' => 'required',
+    //     'tempat_lahir' => 'required',
+    //     'tanggal_lahir' => 'required',
+    //     'waktu_magang' => 'required',
+    //     'lama_waktu_magang' => 'required',
+    //     'jurusan_sekolah' => 'required',
+    //     'alamat_domisili' => 'required',
+    //     'nama_sekolah' => 'required',
+    //     'alamat_sekolah' => 'required',
+    //     'hobi' => 'required',
+    //     'penghargaan' => 'required',
+    //     'sertifikasi' => 'required',
+    //     'keahlian_khusus' => 'required',
+    //     'no_hp' => 'required',
+    //     'no_hp_wali' => 'required',
+    //     'harapan_magang' => 'required',
+    // ]);
 
-        $data->nama_pangggilan = $request->input('nama_panggilan');
-        $data->tempat_lahir = $request->input('tempat_lahir');
-        $data->tanggal_lahir = $request->input('tanggal_lahir');
-        $data->waktu_magang = $request->input('waktu_magang');
-        $data->lama_waktu_magang = $request->input('lama_waktu_magang');
-        $data->jurusan_sekolah = $request->input('jurusan_sekolah');
-        $data->alamat_domisili = $request->input('alamat_domisili');
-        $data->nama_sekolah = $request->input('nama_sekolah');
-        $data->alamat_sekolah = $request->input('alamat_sekolah');
-        $data->hobi = $request->input('hobi');
-        $data->penghargaan = json_encode($request->input('penghargaan'));
-        $data->serifikasi = json_encode($request->input('serifikasi'));
-        $data->keahlian_khusus = json_encode($request->input('keahlian_khusus'));
-        $data->no_hp = json_encode($request->input('no_hp'));
-        $data->no_hp_wali = json_encode($request->input('no_hp_wali'));
-        $data->harapan_magang = json_encode($request->input('harapan_magang'));
+    // Menggunakan "create" untuk membuat instance biodata dan menyimpannya ke database
+    biodata::create([
+        'nama_pangggilan' => $request->input('nama_pangggilan'),
+        'tempat_lahir' => $request->input('tempat_lahir'),
+        'tanggal_lahir' => $request->input('tanggal_lahir'),
+        'waktu_magang' => $request->input('waktu_magang'),
+        'lama_waktu_magang' => $request->input('lama_waktu_magang'),
+        'jurusan_sekolah' => $request->input('jurusan_sekolah'),
+        'alamat_domisili' => $request->input('alamat_domisili'),
+        'nama_sekolah' => $request->input('nama_sekolah'),
+        'alamat_sekolah' => $request->input('alamat_sekolah'),
+        'hobi' => $request->input('hobi'),
+        'penghargaan' => $request->input('penghargaan'),
+        'sertifikasi' => $request->input('sertifikasi'),
+        'keahlian_khusus' => $request->input('keahlian_khusus'),
+        'no_hp' => $request->input('no_hp'),
+        'no_hp_wali' => $request->input('no_hp_wali'),
+        'harapan_magang' => $request->input('harapan_magang'),
+    ]);
 
-        $data->save();
+    return redirect()->route('home')->with('success', 'Data berhasil disimpan');
+    }
 
-        return redirect()->route('data.index')->with('success', 'Data berhasil disimpan');
+    public function tampila_input()
+    {
+        return view('layouts.biodata.input');
     }
 
     /**
@@ -77,9 +100,9 @@ class BiodataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(biodata $biodata)
+    public function show(biodata $biodata, $id)
     {
-        //
+        
     }
 
     /**
@@ -103,6 +126,13 @@ class BiodataController extends Controller
      */
     public function destroy(biodata $biodata)
     {
+        //
+    } 
+    public function dummy(biodata $biodata)
+    {
+        $biodatas = biodata::get();
+
+        return view('dummy',compact('biodatas'));
         //
     }
 }

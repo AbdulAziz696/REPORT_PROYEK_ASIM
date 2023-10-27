@@ -55,13 +55,41 @@
             <input type="text" id="nama_lengkap" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $user->name }}" readonly>
         </div>
         <div class="mb-4">
-            <label for="alamat" class="block text-gray-700 font-semibold">Alamat</label>
-            <input type="text" id="alamat" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200"  value="{{ $user->addres }}" readonly>
+            <label for="panggilan" class="block text-gray-700 font-semibold">Panggilan</label>
+            <input type="text" id="panggilan" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200"  value={{ $biodata->nama_pangggilan }} required>
         </div>
+        
+        <div class="mb-4">
+            <label for="tempat_lahir" class="block text-gray-700 font-semibold">Tempat Lahir</label>
+            <input type="text" id="tempat_lahir" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" name="tempat_lahir" required>
+        </div>
+        
+        <div class="mb-4">
+            <label for="tanggal_lahir" class="block text-gray-700 font-semibold">Tanggal Lahir</label>
+            <input type="date" id="tanggal_lahir" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" name="tanggal_lahir" required>
+        </div>
+        
+        <!-- Lanjutkan untuk elemen-elemen lainnya -->
+        
+        <div class="mb-4">
+            <label for="no_hp" class="block text-gray-700 font-semibold">No. HP</label>
+            <input type="number" id="no_hp" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" name="no_hp" required>
+        </div>
+        
 
         <div class="mb-4">
-            <label for="kota" class="block text-gray-700 font-semibold">Kota</label>
-            <input type="text" id="kota" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" value="{{ $user->city }}" readonly>
+            <label for="no_hp_wali" class="block text-gray-700 font-semibold">No. HP Wali</label>
+            <input type="number" id="no_hp_wali" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" name="no_hp_wali" required>
+        </div>
+        
+        <div class="mb-4">
+            <label for="harapan_magang" class="block text-gray-700 font-semibold">Harapan Magang</label>
+            <textarea id="harapan_magang" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" name="harapan_magang" rows="4"></textarea>
+        </div>
+        
+        <div class="mb-4">
+            <label for="alamat" class="block text-gray-700 font-semibold">Alamat</label>
+            <input type="text" id="alamat" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200"  value="" readonly>
         </div>
         <div class="mb-4">
             <label for="email" class="block text-gray-700 font-semibold">Email</label>

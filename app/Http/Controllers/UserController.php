@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\biodata;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -45,15 +46,15 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user, Post $post, $slug)
+    public function show(User $user, biodata $biodatas, Post $post, $slug)
     {
         $user = $user::where('slug', $slug)->firstOrFail();
         $posts = $post::where('user_id', $user->id)->get();
 
-        return view('layouts.user.detail', compact('user', 'posts' ));
+        return view('layouts.user.detail', compact('user', 'posts',));
     }
 
-
+    
     public function setting(User $user, $slug)
     {
         $users = Auth::user();
