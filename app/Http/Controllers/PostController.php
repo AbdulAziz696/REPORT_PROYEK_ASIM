@@ -65,38 +65,6 @@ class PostController extends Controller
         return view('auth.login');
     }
 
-
-
-
-    public function search(Request $request)
-    {
-        $output = '';
-        if ($request->ajax()) {
-            $data = Post::where('id', 'like', '%' . $request->search . '%')
-                ->orWhere('title', 'like', '%' . $request->search . '%')
-                ->orWhere('content', 'like', '%' . $request->search . '%')->get();
-
-            if (count($data) > 0) {
-                foreach ($data as $i) {
-                    $output .='
-                        <div class="bg-white rounded-lg border border-gray-300 mt-16 mx-4 mb-4">
-                            <div class="w-38 h-38 mx-8 -mt-12">
-
-                            </div>
-                            <div class="mt-4 mx-8 justify-center">
-                                <h1 class="font-bold text-xl text-black text-center">' . $i->title . '</h1>
-                            </div>
-                            <div class="mx-7 my-3">
-                                <button onclick="location.href=\'post/detail/' . $i->slug . '\'" class="border border-gray-400 py-2 px-4 rounded w-full hover:bg-gray-100 hover:text-gray-600 hover:border-gray-700 transition">Detail Aplikasi</button>
-                            </div>
-                        </div>';
-                }
-                return $output;
-            } else {
-                return $output .= 'No result';
-            }
-        }
-    }
     public function employe()
     {
         return view('layouts.user.index');
@@ -154,24 +122,11 @@ class PostController extends Controller
     {
 
 
-        
+
         $posts = $post::where('slug', $slug)->first();
-        // $user_name = User::whereIn('id', $posts->made_by)->get();
-        // $user_name = [];
-        // if ($posts->made_by) {
-            $userIds = $posts->made_by;
-            // $user_name = User::whereIn('id', $userIds)->get();
-        // }
 
-        // $user_name = [];
-        // if ($posts->made_by) {
-            // $userIds = explode(',', $posts->made_by);
-        // }
-        dd($userIds);
-
-        // ddd($user_name);
-        // return view('layouts.post.detail',compact('posts', 'user_name')
-        // );
+        return view('layouts.post.detail',compact('posts', )
+        );
     }
 
     /**
@@ -195,11 +150,15 @@ class PostController extends Controller
         $posts = $post::where('slug', $slug)->firstOrFail();
         $posts->slug = null;
 
+
+        $made_by=$request->input('made_by');
         $data = [
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'url' => $request->input('url'),
             'user_id' => Auth::user()->id,
+            'made_by' =>json_encode($made_by),
+
         ];
 
         if ($request->hasFile('image')) {

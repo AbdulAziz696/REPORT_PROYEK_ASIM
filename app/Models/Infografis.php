@@ -21,8 +21,5 @@ class Infografis extends Model
         ];
     }
 
-    public function bioowner(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
+   
 }

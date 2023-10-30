@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\InfografisController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ReRegistrationController;
 
@@ -30,7 +31,7 @@ Route::get('/', [PostController::class, 'home'])->name('home');
 Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
 Route::get('/infografis', [InfografisController::class, 'index']);
-Route::post('/data/store', [BiodataController::class, 'index'])->name('data.store');
+
 
 
 
@@ -52,9 +53,12 @@ Route::prefix('user')->group(function(){
 
     // Route::get('/',[UserController::class,'index']);
 
-
-
     Route::get('{slug}/profile/settings', [UserController::class, 'setting']);
+
+    Route::post('{slug}/portfolio/add', [PortfolioController::class, 'store']);
+
+    Route::post('{slug}/profile/add', [BiodataController::class, 'store']);
+    Route::post('{id}/profile/edit', [BiodataController::class, 'update']);
 
     Route::put('{slug}/status/update', [UserController::class, 'updateStatus']);
     Route::put('{slug}/profile/settings/update', [UserController::class, 'update'] );

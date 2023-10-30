@@ -43,11 +43,11 @@
             @enderror
             </div>
             <div class="mb-3">
-                <label for="url" class="form-label font-semibold block">URL</label>
+                <label for="made_by[]" class="form-label font-semibold block">CREATOR</label>
                 @foreach($user as $user)
                 <input type="checkbox" name="made_by[]" value="{{ $user->id }}"> {{ $user->name }}<br>
                 @endforeach
-                @error('url')
+                @error('made_by[]')
                 <span class="text-danger">
                     {{ $message }}
                 </span>

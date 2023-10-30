@@ -13,22 +13,26 @@ return new class extends Migration
     {
         Schema::create('biodatas', function (Blueprint $table) {
             $table->id();
-            $table->text('nama_pangggilan');
-            $table->text('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->integer('waktu_magang');
-            $table->integer('lama_waktu_magang');
-            $table->text('jurusan_sekolah');
-            $table->longText('alamat_domisili');
-            $table->Text('nama_sekolah');
-            $table->longText('alamat_sekolah');
-            $table->text('hobi');
-            $table->longText('penghargaan');
-            $table->longText('sertifikasi');
-            $table->longText('keahlian_khusus');
-            $table->longText('no_hp');
-            $table->longText('no_hp_wali');
-            $table->longText('harapan_magang');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->text('nama_panggilan')->nullable();
+            $table->text('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            // $table->integer('waktu_magang')->nullable();
+            $table->integer('lama_waktu_magang')->nullable();
+            $table->text('jurusan_sekolah')->nullable();
+            $table->longText('alamat_domisili')->nullable();
+            $table->Text('nama_sekolah')->nullable();
+            $table->longText('alamat_sekolah')->nullable();
+            $table->text('hobi')->nullable();
+            $table->longText('penghargaan')->nullable();
+            $table->longText('sertifikasi')->nullable();
+            $table->longText('keahlian_khusus')->nullable();
+            $table->longText('no_hp')->nullable();
+            $table->longText('no_hp_wali')->nullable();
+            $table->longText('harapan_magang')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

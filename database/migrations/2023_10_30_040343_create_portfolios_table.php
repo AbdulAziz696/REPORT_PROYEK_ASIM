@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('infografis', function (Blueprint $table) {
+        Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->longText('content')->nullable();
-            $table->string('url')->nullable();
-            $table->string('slug')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->string('image')->nullable();
+            $table->string('folder')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('infografis');
+        Schema::dropIfExists('portfolios');
     }
 };

@@ -46,15 +46,17 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user, biodata $biodatas, Post $post, $slug)
+    public function show(User $users, biodata $biodatas, Post $post, $slug)
     {
-        $user = $user::where('slug', $slug)->firstOrFail();
+        $user = $users::where('slug', $slug)->firstOrFail();
+        $biodata = $biodatas::where('user_id', $user->id)->get();
+
         $posts = $post::where('user_id', $user->id)->get();
 
-        return view('layouts.user.detail', compact('user', 'posts',));
+        return view('layouts.user.detail', compact('user', 'posts', 'biodata'));
     }
 
-    
+
     public function setting(User $user, $slug)
     {
         $users = Auth::user();

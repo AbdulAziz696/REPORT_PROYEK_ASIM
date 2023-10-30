@@ -48,20 +48,20 @@
                 </div>
 
                 <div class="content-text mt-4">
-                    <p class=" font-semibold">made by:</p>
 
-                    {{-- <p class="">
-                        {{$user_name->id([$posts->made_by])}}
 
-                    </p> --}}
-                   {{-- @php
-        // $names = rtrim($user_name, ', ') . '.';
-
-                   @endphp --}}
-
+                        <p class=" font-semibold">made by:</p>
                    <p>
-                    @foreach ($user_name as $i )
-                        <a href="{{url('user/'.$i->slug.'/profile')}}">{{ $i->name}},</a>
+                    @php
+                        $name= json_decode($posts->made_by)
+                   
+                        $user = App\Models\User::whereIn('id', [$name])->get()
+                    @endphp
+
+                    @foreach ($user as $i )
+
+
+                        <a href="{{url('user/'.$i->slug.'/profile')}}">{{$i->name}}</a>
                         @endforeach
                     </p>
 

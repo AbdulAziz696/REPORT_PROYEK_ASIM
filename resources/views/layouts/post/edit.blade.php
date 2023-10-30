@@ -2,10 +2,10 @@
 @section('title', 'Edit Post')
 
 @section('main')
-    <div class="container">
+    <div class="container my-3 ">
 
 
-        < class="my-3 font-bold text-2xl"></
+
 
         <form method="post" action="
     {{ url("post/$edit_post->slug/edit-post") }}
@@ -35,6 +35,24 @@
             <div class="mb-3">
                 <label class="form-label font-semibold">URL</label>
                 <input type='url' class="form-control rounded-md " name="url" value="{{"$edit_post->url"}}">
+            </div>
+            <div class="mb-3">
+                <label for="made_by[]" class="form-label font-semibold block">CREATOR</label>
+                @php
+                        $name= json_decode($edit_post->made_by)
+
+                        $user = App\Models\User::whereIn('id', [$name])->get()
+                    @endphp
+                @foreach($user as $i)
+                <input type="checkbox" name="made_by[]"
+                {{-- value="{{ $edit_post->make_by[] }}" --}}
+                 {{in_array($edit_post->id, )}}> {{ $edit_post->name }}<br>
+                @endforeach
+                @error('made_by[]')
+                <span class="text-danger">
+                    {{ $message }}
+                </span>
+            @enderror
             </div>
             <button type="submit" class="bg-red-500 hover:bg-red-600 text-white rounded-md py-3 px-3">Simpan</button>
             <div class="bg"></div>

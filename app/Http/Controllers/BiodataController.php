@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\biodata;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,6 +35,7 @@ class BiodataController extends Controller
 
     // Menggunakan "create" untuk membuat instance biodata dan menyimpannya ke database
     biodata::create([
+        'user_id' => Auth::user()->id,
         'nama_pangggilan' => $request->input('nama_pangggilan'),
         'tempat_lahir' => $request->input('tempat_lahir'),
         'tanggal_lahir' => $request->input('tanggal_lahir'),
@@ -71,38 +73,45 @@ class BiodataController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $slug)
     {
-        $user=Auth::user()->slug;
 
-        $post = biodata::create([
-            'title' => $request->input('title'),
-            'content' => $request->input('content'),
-            'url' => $request->input('url'),
+    $slug = Auth::user()->slug;
+    $users = User::where('slug', $slug)->firstOrFail();
+    $users->slug = null;
+
+        biodata::create([
             'user_id' => Auth::user()->id,
-
+            'nama_panggilan' => $request->input('nama_panggilan'),
+            'tempat_lahir' => $request->input('tempat_lahir'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
+            // 'waktu_magang' => $request->input('waktu_magang'),
+            'lama_waktu_magang' => $request->input('lama_waktu_magang'),
+            'jurusan_sekolah' => $request->input('jurusan_sekolah'),
+            'alamat_domisili' => $request->input('alamat_domisili'),
+            'nama_sekolah' => $request->input('nama_sekolah'),
+            'alamat_sekolah' => $request->input('alamat_sekolah'),
+            'hobi' => $request->input('hobi'),
+            'penghargaan' => $request->input('penghargaan'),
+            'sertifikasi' => $request->input('sertifikasi'),
+            'keahlian_khusus' => $request->input('keahlian_khusus'),
+            'no_hp' => $request->input('no_hp'),
+            'no_hp_wali' => $request->input('no_hp_wali'),
+            'harapan_magang' => $request->input('harapan_magang'),
         ]);
 
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $nama_gambar = time() . rand(1, 9) . '.' . $image->getClientOriginalExtension();
-            $path = $image->storeAs('report-image', $nama_gambar);
-            $post->image = $path;
-            $post->save();
-        }
-
-        return redirect('user/'.$user.'/profile');
-
+        return redirect("user/".$slug."/profile");
         //
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(biodata $biodata, $id)
     {
-        
+
     }
 
     /**
@@ -116,8 +125,40 @@ class BiodataController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, biodata $biodata)
+    public function update(Request $request, biodata $biodata, $id)
     {
+
+
+    // $id = Auth::user()->profile->user_id;
+
+    $profile = biodata::where('id', $id)->firstOrFail();
+    // $profile->id = null;
+
+        $biodata =[
+            // 'user_id' => Auth::user()->id,
+            'nama_panggilan' => $request->input('nama_panggilan'),
+            'tempat_lahir' => $request->input('tempat_lahir'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
+            // 'waktu_magang' => $request->input('waktu_magang'),
+            'lama_waktu_magang' => $request->input('lama_waktu_magang'),
+            'jurusan_sekolah' => $request->input('jurusan_sekolah'),
+            'alamat_domisili' => $request->input('alamat_domisili'),
+            'nama_sekolah' => $request->input('nama_sekolah'),
+            'alamat_sekolah' => $request->input('alamat_sekolah'),
+            'hobi' => $request->input('hobi'),
+            'penghargaan' => $request->input('penghargaan'),
+            'sertifikasi' => $request->input('sertifikasi'),
+            'keahlian_khusus' => $request->input('keahlian_khusus'),
+            'no_hp' => $request->input('no_hp'),
+            'no_hp_wali' => $request->input('no_hp_wali'),
+            'harapan_magang' => $request->input('harapan_magang'),
+        ];
+
+        $profile->update($biodata);
+
+
+        return redirect('user/'.auth()->user()->slug.'/profile');
+        //
         //
     }
 
@@ -127,7 +168,7 @@ class BiodataController extends Controller
     public function destroy(biodata $biodata)
     {
         //
-    } 
+    }
     public function dummy(biodata $biodata)
     {
         $biodatas = biodata::get();
