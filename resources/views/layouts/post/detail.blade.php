@@ -53,9 +53,9 @@
                         <p class=" font-semibold">made by:</p>
                    <p>
                     @php
-                        $name= json_decode($posts->made_by)
+                        $name= json_decode($posts->made_by);
                    
-                        $user = App\Models\User::whereIn('id', [$name])->get()
+                        $user = App\Models\User::whereIn('id', [$name])->get();
                     @endphp
 
                     @foreach ($user as $i )

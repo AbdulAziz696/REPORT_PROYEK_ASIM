@@ -24,15 +24,18 @@ use App\Http\Controllers\ReRegistrationController;
 //     return view('index');
 // });
 
-Route::get('/daftar', [ReRegistrationController::class, 'daftar']);
-Route::post('/registerstudent', [ReRegistrationController::class, 'registerstudent'])->name('registerstudent');
+
+
 Route::get('/masuk', [PostController::class, 'masuk']);
 Route::get('/', [PostController::class, 'home'])->name('home');
 Route::get('/intern', [UserController::class, 'index']);
 Route::get('/project_report', [PostController::class, 'project_report']);
 Route::get('/infografis', [InfografisController::class, 'index']);
 
-
+Route::middleware(['admin'])->group(function () {
+    Route::get('/daftar', [ReRegistrationController::class, 'daftar']);
+    Route::post('/registerstudent', [ReRegistrationController::class, 'registerstudent'])->name('registerstudent');
+});
 
 
 

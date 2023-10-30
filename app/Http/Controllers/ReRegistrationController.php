@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class ReRegistrationController extends Controller
 {
 
+    
+
     public function daftar()
     {
         return view('auth.register');

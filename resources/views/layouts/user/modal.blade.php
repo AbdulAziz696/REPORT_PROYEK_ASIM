@@ -26,12 +26,12 @@
                     </div>
 
                     <div>
-                        <label for="status" class="block mb-2 text-sm font-medium text-gray-900 text-left">Status</label>
+                        {{-- <label for="status" class="block mb-2 text-sm font-medium text-gray-900 text-left">Status</label>
 
-                        <option value="">-- status --</option>
-                                @foreach ($pasien as $row)
+                        <option value="">-- status --</option> --}}
+                                {{-- @foreach ($pasien as $row)
                                 <option value="{{$i->id}}">{{$i->nama_pasien}}</option>
-                                @endforeach
+                                @endforeach --}}
                         {{-- <select name="status" required="required" class="js-states form-control" style="width: 100%; margin: 6px 12px;">
                             <option value="active" {{ $i->status === 'active' ? 'selected' : '' }}>Active</option>
                             <option value="inactive" {{ $i->status === 'inactive' ? 'selected' : '' }}>Inactive</option>
