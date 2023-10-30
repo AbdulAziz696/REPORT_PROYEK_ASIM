@@ -54,6 +54,9 @@
                         id="portofolio-tab" data-tabs-target="#portofolio" type="button" role="tab"
                         aria-controls="portofolio" aria-selected="false">Portofolio</button>
                 </li>
+                <li role="presentation">
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">InfoGrafis</button>
+                </li>
             </ul>
         </div>
 
@@ -134,7 +137,7 @@
                     {{-- <embed id="harapan_magang" class="mt-1 p-2 border rounded w-full focus:ring focus:ring-blue-200" rows="4" readonly>
                 {{-- "{{$user->profile->harapan_magang ?? '-'}}" --}}
                     {{-- </iframe> --}}
-                    <a href="{{asset('storage/'.auth()->user()->portofolio->folder)}}" class="btn bg-green-700 block w-full text-white">Download My Portfolio Here</a>
+                    <a href="{{asset('storage/'.optional(auth()->user()->portofolio)->folder )}}" class="btn bg-green-700 block w-full text-white">Download My Portfolio Here</a>
 
                 </div>
 
@@ -219,6 +222,10 @@
 
                 <p>Ini adalah bagian portofolio</p>
 
+            </div>
+
+            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+                <p class="text-sm text-gray-500 dark:text-gray-400">Ini adalah bagian infografis</p>
             </div>
 
 
