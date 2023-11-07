@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware("auth");
+    }
 
     public function profile()
     {
@@ -29,21 +33,9 @@ class PostController extends Controller
 
         return view('layouts.post.index', compact('posts'));
     }
-    public function home(Post $post, User $user)
-    {
-        $posts = $post::inRandomOrder()->get();;
-        $users = User::where('role', 'intern')->get();
 
 
-        return view('index', compact('posts','users'));
-    }
-    public function pro(Post $post)
-    {
-        $posts = $post::all();
-
-        return view('index', compact('posts'));
-    }
-
+  
     /**
      * Show the form for creating a new resource.
      */
@@ -55,15 +47,8 @@ class PostController extends Controller
         //
     }
 
-    // public function daftar()
-    // {
-    //     return view('auth.register');
-    // }
 
-    public function masuk()
-    {
-        return view('auth.login');
-    }
+
 
     public function employe()
     {

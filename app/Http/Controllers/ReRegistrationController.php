@@ -8,21 +8,20 @@ use Illuminate\Http\Request;
 class ReRegistrationController extends Controller
 {
 
+    function __construct()
+    {
+        $this->middleware("auth");
+        $this->middleware("admin");
+    }
+
     public function daftar()
     {
+
         return view('auth.register');
     }
 
     public function registerstudent(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|max:255|unique:users',
-        //     'password' => 'required|string|min:8|confirmed',
-
-        // ]);
-
-        // Simpan data pendaftaran siswa ke dalam database
         User::create([
             'name' => $request->name,
             'email' => $request->email,

@@ -18,6 +18,11 @@ class InfografisController extends Controller
     /**
      * Display a listing of the resource.
      */
+    function __construct()
+    {
+        $this->middleware("auth");
+    }
+    
     public function index(Infografis $infografis)
     {
         $info = $infografis::all();

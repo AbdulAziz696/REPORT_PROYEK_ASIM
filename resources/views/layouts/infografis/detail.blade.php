@@ -67,7 +67,7 @@
                         $users = App\Models\Post::whereIn('id', $made_references)->get();
 
                         foreach ($users as $i) {
-                            echo '<a href="' . url('post/' . $i->slug . '/detail') . '">' . $i->title . ',</a>';
+                            echo '<a href="' . url('post/' . $i->slug . '/detail') . '" target="_blank"">' . $i->title . ',</a>';
                         }
                     }
                 @endphp

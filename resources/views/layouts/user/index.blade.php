@@ -8,7 +8,7 @@
             @if (Auth::check())
                 @if (Auth::user()->role == 'admin')
                     @if (Auth::user()->status == true)
-                        <a href="{{ url('/daftar') }}"
+                        <a href="{{ url('register') }}"
                             class="bg-blue-500 btn hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                             Add Employee
                         </a>

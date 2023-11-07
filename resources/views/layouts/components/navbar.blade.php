@@ -44,7 +44,7 @@
 
              @guest
                  <!-- Tombol Login -->
-                 <button onclick="window.location.href='/masuk'"
+                 <button onclick="window.location.href='/login'"
                      class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-500">Login</button>
              @else
                  <div class="relative" x-data="{ open: false }">
@@ -93,7 +93,7 @@
                              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                              type="button">
                              Logout
-                            
+
                          </button>
   @include('layouts.components.modal')
 
@@ -120,7 +120,7 @@
 
              @guest
              <!-- Tombol Login -->
-             <button onclick="window.location.href='/masuk'"
+             <button onclick="window.location.href='/login'"
                  class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-500">Login</button>
          @else
              <!-- User avatar button -->

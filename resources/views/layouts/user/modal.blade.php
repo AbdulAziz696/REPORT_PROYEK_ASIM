@@ -26,7 +26,7 @@
                     </div>
 
                     <div>
-                        <label for="status" class="block mb-2 text-sm font-medium text-gray-900 text-left">Status</label>
+                        {{-- <label for="status" class="block mb-2 text-sm font-medium text-gray-900 text-left">Status</label>
 
                         {{-- <option value="">-- status --</option>
                                 @foreach ($i as $ia)

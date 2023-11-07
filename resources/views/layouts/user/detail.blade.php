@@ -134,8 +134,7 @@
                 @if (Auth::check())
                     @if (Auth::user()->id == $user->id)
                         @if (Auth::user()->status == 'active')
-
-                        @if (optional($user->portfolio)->user_id == auth()->user()->id)
+                        @if (optional($user->portofolio)->user_id == auth()->user()->id)
                         <button data-modal-target="update-porto-modal{{ $user->id }}"
                             data-modal-toggle="update-porto-modal{{ $user->id }}"
                             class="btn block w-full text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

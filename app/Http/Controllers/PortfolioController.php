@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware("auth");
+    }
     /**
      * Display a listing of the resource.
      */
@@ -32,9 +37,9 @@ class PortfolioController extends Controller
     public function store(Request $request)
     {
 
-        $portofolio= Portfolio::create([
+$portofolio=portfolio::create([
             'user_id' => Auth::user()->id,
-            // 'folder' => $request->input('folder'),
+            'folder' => $request->input('folder'),
 
         ],
     );
@@ -45,6 +50,7 @@ class PortfolioController extends Controller
         $portofolio->folder = $path;
         $portofolio->save();
     }
+
 
         return redirect('user/'.auth()->user()->slug.'/profile');
 
@@ -65,38 +71,6 @@ class PortfolioController extends Controller
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, $id)
-    // {
-
-    //     $porto = portfolio::where('id', $id)->firstOrFail();
-
-    //     $portfolio= [
-    //         'user_id' => Auth::user()->id,
-    //         'folder' => $request->input('folder'),
-
-    //     ];
-    // if ($request->hasFile('folder')) {
-    //     Storage::delete($porto->folder);
-    //         $portfolio['folder'] = $request->file('folder')->store('portfolio-file');
-    //         $gambar = $request->file('folder');
-    //         $nama_gambar = time() . rand(1, 9) . '.' . $gambar->getClientOriginalExtension();
-    //         $path = $gambar->storeAs('portfolio-file', $nama_gambar);
-    //         $portfolio['folder'] = $path;
-
-    //     }else {
-
-    //         $portfolio['folder'] = $porto->folder;
-    //     }
-
-    //     $porto->update($portfolio);
-
-    //     return redirect('user/'.auth()->user()->slug.'/profile');
-
-    // }
 
     public function update(Request $request, portfolio $portfolio, $id)
     {
