@@ -6,7 +6,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\InfografisController;
 use App\Http\Controllers\PortfolioController;
-use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ReRegistrationController;
 
 /*
@@ -47,18 +46,19 @@ Route::get('/infografis', [InfografisController::class, 'index']);
 // });
 
 
-Route::get('dummy', [BiodataController::class,'dummy'],);
+
 
 Route::prefix('user')->group(function(){
 
-    // Route::get('/',[UserController::class,'index']);
+    Route::post('portofolio/add-porto', [PortfolioController::class, 'store']);
+    Route::put('portofolio/{id}/edit-change', [PortfolioController::class, 'update']);
+
+    Route::post('profile/add', [BiodataController::class, 'store']);
+    Route::put('profile/{id}/edit', [BiodataController::class, 'update']);
+
 
     Route::get('{slug}/profile/settings', [UserController::class, 'setting']);
 
-    Route::post('{slug}/portfolio/add', [PortfolioController::class, 'store']);
-
-    Route::post('{slug}/profile/add', [BiodataController::class, 'store']);
-    Route::post('{id}/profile/edit', [BiodataController::class, 'update']);
 
     Route::put('{slug}/status/update', [UserController::class, 'updateStatus']);
     Route::put('{slug}/profile/settings/update', [UserController::class, 'update'] );
@@ -99,18 +99,18 @@ Route::prefix('post')->group(function(){
 
 Route::prefix('infografis')->group(function(){
 
-    Route::get('', [PostController::class,'index']);
+    Route::get('', [InfografisController::class,'index']);
 
-    // Route::get('search', [PostController::class,'search'])->name('search');
+    // Route::get('search', [InfografisController::class,'search'])->name('search');
 
-    Route::get('{slug}/detail', [PostController::class,'show']);
+    Route::get('{slug}/detail', [InfografisController::class,'show']);
 
     Route::get('add',[InfografisController::class,'create']);
-    Route::post('add-post',[PostController::class,'store']);
+    Route::post('add-info',[InfografisController::class,'store']);
 
-    Route::get('{slug}/edit',[PostController::class,'edit']);
-    Route::patch('{slug}/edit-post',[PostController::class,'update']);
+    Route::get('{slug}/edit',[InfografisController::class,'edit']);
+    Route::patch('{slug}/edit-info',[InfografisController::class,'update']);
 
-    Route::delete('{id}', [PostController::class, 'destroy']);
+    Route::delete('{id}', [InfografisController::class, 'destroy']);
 });
 

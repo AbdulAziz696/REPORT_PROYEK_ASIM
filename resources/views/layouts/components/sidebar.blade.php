@@ -51,7 +51,7 @@
               role="menuitem"
               class="block p-2 text-sm {{ Request::is('/*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light"
           >
-              Default
+              Home
           </a>
           <a
               href="{{url('/intern')}}"
@@ -74,31 +74,30 @@
           >
               Info Grafis
           </a>
-          
+
       </div>
 
       </div>
 
       @if (Auth::check())
-      
-      <a href="{{ route('logout') }}" role="menuitem"
+
+      <button data-modal-target="delete-modal" data-modal-toggle="delete-modal" role="menuitem"
       class="block px-4 py-2 text-sm text-white text-center rounded-md mx-3 bg-red-600 transition-colors hover:bg-red-700 dark:text-light dark:hover:bg-primary"
-      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+      type="button"
+      >
       Logout
-      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-      </form>
-  </a>
-          
-              
+    </button>
+  @include('layouts.components.modal')
+
+
           @else
 
-         
-          
+
+
       @endif
        <!-- Components links -->
 
-     
+
 
   </div>
 </aside>

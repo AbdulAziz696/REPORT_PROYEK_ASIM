@@ -26,8 +26,7 @@
                     <th class=" text-center">Position</th>
                     <th class=" text-center">Status</th>
                     <th class=" text-center">Project Qty</th>
-                    <th class=" text-center">Start date</th>
-                    <th class=" text-center">End date</th>
+
                     <th class=" text-center">Action</th>
                 </tr>
             </thead>
@@ -47,12 +46,11 @@
                         <td class=" text-center">{{ $i->role }}</td>
                         <td class=" text-center">{{ $i->status }}</td>
                         <td class=" text-center">{{ $i->posting->count() }}</td>
-                        <td class=" text-center">{{ date('d M Y', strtotime($i->created_at)) }}</td>
-                        <td class=" text-center">{{ date('d M Y', strtotime($i->updated_at)) }}</td>
                         <td class=" text-center">
                             @if (Auth::check())
                                 @if (Auth::user()->role == 'admin')
-                                    @if (Auth::user()->status == true)
+                                    @if (Auth::user()->status == 'active')
+                                    <a href="{{ url('user/' . $i->slug . '/profile') }}" class="btn mx-1 border text-center hover:bg-slate-500 hover:text-white" readonly>view</a>
                                         <div class="inline-flex">
                                             <button data-modal-target="edit-modal{{ $i->id }}"
                                                 data-modal-toggle="edit-modal{{ $i->id }}"
@@ -62,21 +60,19 @@
                                             </button>
                                            @include('layouts.user.modal')
 
-
-                                                {{-- <form action="{{url("user/$i->id")}}" method="post">
-                                    @method('DELETE')
-                                    <button type="submit" class="btn border">delete</button>
-                                </form> --}}
-
-                                <button data-modal-target="popup-modal{{$i->id}}" data-modal-toggle="popup-modal{{$i->id}}" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button">
+                                <button data-modal-target="popup-modal{{$i->id}}" data-modal-toggle="popup-modal{{$i->id}}" class="block mx-1 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button">
                                     Delete Intern
                                   </button>
 
-                                            @endif
-                                        </div>
+                                </div>
+                                @else
+                                <a href="{{ url('user/' . $i->slug . '/profile') }}" class="btn border text-center hover:bg-slate-500 hover:text-white" readonly>view</a>
+                                @endif
+                                @else
+                                <a href="{{ url('user/' . $i->slug . '/profile') }}" class="btn border text-center hover:bg-slate-500 hover:text-white"  readonly>view</a>
+
                                     @endif
-                                    @else
-                                        <p class="btn border text-center" readonly>view</p>
+
                                 @endif
 
 
@@ -97,6 +93,6 @@
 
 
 
-{{-- @include('layouts.user.modal') --}}
+
 
 @endsection

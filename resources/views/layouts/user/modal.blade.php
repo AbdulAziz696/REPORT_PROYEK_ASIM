@@ -15,42 +15,39 @@
                 <span class="sr-only">Close modal</span>
             </button>
             <div class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium text-gray-900 ">Sign in to our platform</h3>
+                <h3 class="mb-4 text-xl font-medium text-gray-900 ">Change Intern Status</h3>
                 <form class="space-y-6" action="{{ url('user/'.$i->slug.'/status/update') }}" method="POST">
                     @method('PUT')
                     @csrf
 
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 text-left">Name</label>
-                        <input type="text"  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 " value="{{$i->name}}" readonly>
+                        <input type="text"  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 justify-left dark:placeholder-gray-400 " value="{{$i->name}}" readonly>
                     </div>
 
                     <div>
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 text-left">Status</label>
 
-                        <option value="">-- status --</option>
-                                @foreach ($pasien as $row)
-                                <option value="{{$i->id}}">{{$i->nama_pasien}}</option>
-                                @endforeach
-                        {{-- <select name="status" required="required" class="js-states form-control" style="width: 100%; margin: 6px 12px;">
+                        {{-- <option value="">-- status --</option>
+                                @foreach ($i as $ia)
+                                <option value="{{$ia->status}}">{{$ia->status}}</option>
+                                @endforeach --}}
+                        <select name="status" required="required" class="js-states form-control" style="width: 100%; margin: 6px 0px;">
+
                             <option value="active" {{ $i->status === 'active' ? 'selected' : '' }}>Active</option>
                             <option value="inactive" {{ $i->status === 'inactive' ? 'selected' : '' }}>Inactive</option>
-                        </select> --}}
+                        </select>
 
                     </div>
 
                     <button type="submit"
-                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save your update</button>
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save Intern Status</button>
 
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-   
-
-
 
 
 <div id="popup-modal{{$i->id}}" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -66,7 +63,7 @@
                 <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                 </svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this user?</h3>
+                <h3 class="p-auto mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this user?</h3>
                 <form class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2" action="{{url('user/'.$i->id)}}" method="POST">
                     @method('DELETE')
                 @csrf

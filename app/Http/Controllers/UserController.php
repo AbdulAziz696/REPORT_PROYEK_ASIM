@@ -8,6 +8,7 @@ use App\Models\biodata;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Models\Infografis;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -46,14 +47,17 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $users, biodata $biodatas, Post $post, $slug)
+    public function show(User $users, biodata $biodatas, Post $post, Infografis $infografis, $slug)
     {
         $user = $users::where('slug', $slug)->firstOrFail();
+
         $biodata = $biodatas::where('user_id', $user->id)->get();
 
         $posts = $post::where('user_id', $user->id)->get();
 
-        return view('layouts.user.detail', compact('user', 'posts', 'biodata'));
+        $info = $infografis::where('user_id', $user->id)->get();
+
+        return view('layouts.user.detail', compact('user', 'posts', 'biodata', 'info' ));
     }
 
 
@@ -85,13 +89,12 @@ class UserController extends Controller
     $users = User::where('slug', $slug)->firstOrFail();
     $users->slug = null;
 
-    $slug = Str::slug($request->input('name'));
+
     $data = [
         'name' => $request->input('name'),
-        // 'addres' => $request->input('addres'),
-        // 'city' => $request->input('city'),
         'email' => $request->input('email'),
-        'slug' => $slug,
+        'email_verified_at' =>now()
+
 
     ];
 

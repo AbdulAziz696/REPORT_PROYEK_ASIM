@@ -136,9 +136,11 @@ class PostController extends Controller
     {
         //
         $edit_post = Post::where('slug', $slug)->first();
+        $user = User::all();
 
 
-        return view('layouts.post.edit', compact('edit_post'));
+
+        return view('layouts.post.edit', compact('edit_post','user'));
     }
 
     /**
@@ -187,7 +189,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
             $post->delete();
 
-        return redirect('post');
+        return redirect('user/'.auth()->user()->slug.'/profile');
     }
 }
 

@@ -59,7 +59,7 @@
                          <!-- Gambar dari folder image -->
                          <img src="{{ asset('img/'.auth()->user()->image) }}" alt="Gambar dari Folder Image" class="img-user rounded-full  w-10  h-10   border border-solid border-white-25 mx-auto">
                      @endif
-                    
+
                          @php
                              $words = explode(' ', auth()->user()->name);
                              $display_name = implode(' ', array_slice($words, 0, 2));
@@ -87,16 +87,16 @@
                          </a>
                          <a href="{{ url('user/' . auth()->user()->slug . '/profile/settings') }}" role="menuitem"
                              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary">
-                             Settings
+                            Profile Settings
                          </a>
-                         <a href="{{ route('logout') }}" role="menuitem"
+                         <button  data-modal-target="delete-modal" data-modal-toggle="delete-modal" role="menuitem"
                              class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                             type="button">
                              Logout
-                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                 @csrf
-                             </form>
-                         </a>
+                            
+                         </button>
+  @include('layouts.components.modal')
+
                      </div>
                  </div>
 
@@ -115,7 +115,7 @@
              class="absolute flex items-center p-4 bg-white rounded-md shadow-lg dark:bg-darker top-16 inset-x-4 md:hidden"
              aria-label="Secondary">
              <div class="space-x-2">
-                 
+
              </div>
 
              @guest
@@ -128,26 +128,25 @@
                  <button @click="open = !open" type="button" aria-haspopup="true"
                      :aria-expanded="open ? 'true' : 'false'"
                      class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
-                     
-                    
-                     
+
+
+
                      <a href="{{ url('user/' . auth()->user()->slug . '/profile') }}" role="menuitem"
                          class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary">
                          Your Profile
                      </a>
                      <a href="{{ url('user/' . auth()->user()->slug . '/profile/settings') }}" role="menuitem"
                          class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary">
-                         Settings
+                        Profile Settings
                      </a>
-                     <a href="{{ route('logout') }}" role="menuitem"
+                     <button data-modal-target="delete-modal" data-modal-toggle="delete-modal" role="menuitem"
+                     type="button"
                          class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                         >
                          Logout
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                             style="display: none;">
-                             @csrf
-                         </form>
-                     </a>
+                     </button>
+  @include('layouts.components.modal')
+
                  </button>
 
 
@@ -190,7 +189,7 @@
                      <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                      <a href="{{ url('/') }}" role="menuitem"
                          class="block p-2 text-sm {{ Request::is('/*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light">
-                         Default
+                         Home
                      </a>
                      <a href="{{ url('/intern') }}" role="menuitem"
                          class="block p-2 text-sm {{ Request::is('intern*', 'user*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light">
@@ -199,6 +198,10 @@
                      <a href="{{ url('post') }}" role="menuitem"
                          class="block p-2 text-sm {{ Request::is('post*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light">
                          Project Report
+                     </a>
+                     <a href="{{ url('infografis') }}" role="menuitem"
+                         class="block p-2 text-sm {{ Request::is('infografis*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light">
+                         Infografis
                      </a>
                  </div>
              </div>

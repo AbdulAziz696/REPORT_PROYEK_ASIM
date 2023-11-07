@@ -16,10 +16,6 @@ class Post extends Model
     protected $casts = [
         'made_by' => 'array',
     ];
-
-
-
-
     public function sluggable(): array
     {
         return [
@@ -34,7 +30,7 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-   
+
 
 
 }

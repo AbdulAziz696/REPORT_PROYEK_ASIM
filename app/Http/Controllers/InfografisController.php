@@ -3,42 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Models\Infografis;
+use App\Models\post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class InfografisController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function profile()
-    {
-        $data_user = Auth::user();
 
-        return view('layouts.user.user_profile',compact('data_user'));
-    }
     /**
      * Display a listing of the resource.
      */
-    public function index(Infografis $post)
+    public function index(Infografis $infografis)
     {
-        $posts = $post::all();
+        $info = $infografis::all();
 
-        return view('layouts.post.index', compact('posts'));
+        return view('layouts.infografis.index', compact('info'));
     }
-    public function home(Infografis $post, User $user)
+    public function home(Infografis $infografis, User $user)
     {
-        $posts = $post::inRandomOrder()->get();;
+        $info = $infografis::inRandomOrder()->get();;
         $users = User::where('role', 'intern')->get();
 
 
-        return view('index', compact('posts','users'));
+        return view('index', compact('info','users'));
     }
-    public function pro(Infografis $post)
+    public function pro(Infografis $infografis)
     {
-        $posts = $post::all();
+        $info = $infografis::all();
 
-        return view('index', compact('posts'));
+        return view('index', compact('info'));
     }
 
     /**
@@ -48,45 +46,35 @@ class InfografisController extends Controller
     {
     $user= User::all();
 
-        return view('layouts.post.create',compact('user'));
+    $post=Post::all();
+
+
+        return view('layouts.infografis.create',compact('user','post'));
         //
     }
 
-    // public function daftar()
-    // {
-    //     return view('auth.register');
-    // }
 
-    public function masuk()
-    {
-        return view('auth.login');
-    }
 
-    public function employe()
-    {
-        return view('layouts.user.index');
-    }
 
-    public function project_report()
-    {
-        return view('layouts.post.index');
-    }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Infografis $post, StorepostRequest $request)
+    public function store(Infografis $infografis, Request $request)
     {
         $user=Auth::user();
+        $post=Post::all();
 
 
+        $created_by=$request->input('created_by');
         $made_by=$request->input('made_by');
-        $post = $post::create([
+        $info = $infografis::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'url' => $request->input('url'),
-            'user_id' => Auth::user()->id,
+            'user_id' => $user->id,
             'made_by' =>json_encode($made_by),
+            'created_by' =>json_encode($created_by),
 
         ]);
 
@@ -94,9 +82,9 @@ class InfografisController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $nama_gambar = time() . rand(1, 9) . '.' . $image->getClientOriginalExtension();
-            $path = $image->storeAs('report-image', $nama_gambar);
-            $post->image = $path;
-            $post->save();
+            $path = $image->storeAs('info-image', $nama_gambar);
+            $info->image = $path;
+            $info->save();
         }
 
         return redirect('user/'.$user->slug.'/profile');
@@ -115,39 +103,43 @@ class InfografisController extends Controller
 
 
 
-    public function show(Infografis $post, $slug)
+    public function show(Infografis $infografis, $slug)
     {
 
 
 
-        $posts = $post::where('slug', $slug)->first();
+        $info = Infografis::where('slug', $slug)->first();
 
-        return view('layouts.post.detail',compact('posts', )
+
+        return view('layouts.infografis.detail',compact('info' )
         );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Infografis $post, $slug)
+    public function edit(Infografis $infografis, $slug)
     {
         //
-        $edit_post = Infografis::where('slug', $slug)->first();
+        $info = Infografis::where('slug', $slug)->firstOrFail();
+        $post = post::all();
+        $user = User::all();
 
 
-        return view('layouts.post.edit', compact('edit_post'));
+        return view('layouts.infografis.edit', compact('info','post','user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatepostRequest $request, Infografis $post, $slug)
+    public function update(Request $request, Infografis $infografis, $slug)
     {
         $user=Auth::user()->slug;
-        $posts = $post::where('slug', $slug)->firstOrFail();
-        $posts->slug = null;
+        $info = $infografis::where('slug', $slug)->firstOrFail();
+        $info->slug = null;
 
 
+        $created_by=$request->input('created_by');
         $made_by=$request->input('made_by');
         $data = [
             'title' => $request->input('title'),
@@ -155,23 +147,24 @@ class InfografisController extends Controller
             'url' => $request->input('url'),
             'user_id' => Auth::user()->id,
             'made_by' =>json_encode($made_by),
+            'created_by' =>json_encode($created_by),
 
         ];
 
         if ($request->hasFile('image')) {
-            Storage::delete($posts->image);
-            $data['image'] = $request->file('image')->store('report-image');
+            Storage::delete($info->image);
+            $data['image'] = $request->file('image')->store('info-image');
             $gambar = $request->file('image');
             $nama_gambar = time() . rand(1, 9) . '.' . $gambar->getClientOriginalExtension();
-            $path = $gambar->storeAs('report-image', $nama_gambar);
+            $path = $gambar->storeAs('info-image', $nama_gambar);
             $data['image'] = $path;
 
         }else {
 
-            $data['image'] = $posts->image;
+            $data['image'] = $info->image;
         }
 
-        $posts->update($data);
+        $info->update($data);
 
         return redirect('user/'.$user.'/profile');
     }
@@ -181,9 +174,9 @@ class InfografisController extends Controller
      */
     public function destroy($id)
     {
-        $post = Infografis::findOrFail($id);
-            $post->delete();
+        $info = Infografis::findOrFail($id);
+            $info->delete();
 
-        return redirect('post');
+        return redirect('user/'.auth()->user()->slug.'/profile');
     }
 }

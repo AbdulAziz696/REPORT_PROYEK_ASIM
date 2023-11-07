@@ -1,5 +1,5 @@
 @extends('welcome')
-@section('title', '| Dashboard')
+@section('title', '| Home')
 @section('main')
 
  <!-- Content header -->

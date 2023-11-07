@@ -57,17 +57,18 @@ class User extends Authenticatable
             ]
         ];
     }
+
     public function posting(): HasMany
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class, 'user_id', 'id');
     }
     public function profile(): HasOne
     {
-        return $this->hasOne(biodata::class);
+        return $this->hasOne(biodata::class,'user_id', 'id');
     }
     public function portofolio(): HasOne
     {
-        return $this->hasOne(portfolio::class);
+        return $this->hasOne(portfolio::class, 'user_id', 'id');
     }
 
 
