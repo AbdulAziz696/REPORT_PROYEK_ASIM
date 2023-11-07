@@ -1,5 +1,5 @@
 @extends('welcome')
-@section('title', '| Post Detail')
+@section('title', '| Project Detail')
 
 @section('main')
 

@@ -33,13 +33,13 @@
                     <label for="Email" class="block text-gray-700 font-semibold">Email</label>
                     <input type="text" name="email" id="Email"
                         class="mt-1 p-2 border rounded w-full focus:ring focus:ring-red-300"
-                        placeholder="Enter your Email">
+                        placeholder="Enter your Email...">
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block text-gray-700 font-semibold">Password</label>
                     <input type="password" name="password" id="password"
                         class="mt-1 p-2 border rounded w-full focus:ring focus:ring-red-300"
-                        placeholder="Enter your password">
+                        placeholder="Enter your password...">
                     <input type="checkbox" id="showPassword" class="mt-2">
                     <label for="showPassword" class="text-gray-700 ml-2 cursor-pointer select-none">Show Password</label>
                 </div>

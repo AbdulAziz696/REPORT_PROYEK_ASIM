@@ -75,7 +75,6 @@
                         readonly>
                 </div>
 
-
                 @if (Auth::check() )
                 @if (Auth::user()->id == $user->id || Auth::user()->role=='admin')
                 <div class="mb-4">
@@ -123,7 +122,7 @@
                 @if (empty($user->portofolio))
                     @else
                     <div class="mb-4">
-                        <a href="{{ asset('storage/' . optional(auth()->user()->portofolio)->folder) }}" target="_blank"
+                        <a href="{{ asset('storage/' . optional($user->portofolio)->folder) }}" target="_blank"
                         class="btn bg-green-600 hover:bg-green-700 block w-full text-white">Download My Portfolio Here</a>
 
                     </div>

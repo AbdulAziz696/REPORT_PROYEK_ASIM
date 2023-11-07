@@ -1,5 +1,5 @@
 @extends('welcome')
-@section('title', '| Edit Post')
+@section('title', '| Edit Project')
 
 @section('main')
     <div class="container my-3 ">

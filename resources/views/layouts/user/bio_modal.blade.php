@@ -21,14 +21,14 @@
                     <div class="grid gap-6 mb-6 lg:grid-cols-2">
                         <div>
                             <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Panggilan</label>
-                            <input type="text" id="first_name" name="nama_panggilan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Abdul Aziz" >
+                            <input type="text" id="first_name" name="nama_panggilan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John Doe..." >
                             @error('nama_pangggilan')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tempat Lahir</label>
-                            <input type="text" id="city" name="tempat_lahir" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jakarta" >
+                            <input type="text" id="city" name="tempat_lahir" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl.Example..." >
                             @error('tempat_lahir')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
@@ -43,35 +43,35 @@
 
                             <div>
                                 <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat Lengkap</label>
-                                <input type="text" id="address" name="alamat_domisili" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Sholeh Iskandar No.KM 6, RT.04/RW.01, Cibadak, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16166" >
+                                <input type="text" id="address" name="alamat_domisili" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl.Example..." >
                                 @error('alamat_domisili')
                                     <p class="text-red-500">{{ $message }}</p>
                                 @enderror
                             </div>
                         <div>
                             <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Lama Waktu Magang</label>
-                            <input type="number" id="age" name="lama_waktu_magang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Abdul Aziz" >
+                            <input type="number" id="age" name="lama_waktu_magang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0..." >
                             @error('lama_waktu_magang')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="school_major" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Jurusan Sekolah</label>
-                            <input type="text" id="school_major" name="jurusan_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rpl (Web Dev)" >
+                            <input type="text" id="school_major" name="jurusan_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rpl (Web Dev)..." >
                             @error('jurusan_sekolah')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="school_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asal Sekolah/Kampus</label>
-                            <input type="text" id="school_name" name="nama_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="IDN Boarding School" >
+                            <input type="text" id="school_name" name="nama_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="SMA/SMK/MAN/Universitas..." >
                             @error('nama_sekolah')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="school_address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat Sekolah/Kampus</label>
-                            <input type="text" id="school_address" name="alamat_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Raya Dayeuh, Sukanegara, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830" >
+                            <input type="text" id="school_address" name="alamat_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl.Example..." >
                             @error('alamat_sekolah')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
@@ -79,7 +79,7 @@
 
                         <div>
                             <label for="hobby" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hobi</label>
-                            <input type="text" id="hobby" name="hobi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bermain Futsal" >
+                            <input type="text" id="hobby" name="hobi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Soccer..." >
                             @error('hobi')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
@@ -87,35 +87,35 @@
 
                         <div>
                             <label for="awards" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Penghargaan</label>
-                            <input type="text" id="awards" name="penghargaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Abdul Aziz" >
+                            <input type="text" id="awards" name="penghargaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="National..." >
                             @error('penghargaan')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="certifications" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sertifikasi</label>
-                            <input type="text" id="certifications" name="sertifikasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rpl (Web Dev)" >
+                            <input type="text" id="certifications" name="sertifikasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="CCNA, Dicoding..." >
                             @error('sertifikasi')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="special_skills" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Keahlian Khusus</label>
-                            <input type="text" id="special_skills" name="keahlian_khusus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Sholeh Iskandar No.KM 6, RT.04/RW.01, Cibadak, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16166" >
+                            <input type="text" id="special_skills" name="keahlian_khusus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Laravel, Cisco..." >
                             @error('keahlian_khusus')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="phone_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">No. HP</label>
-                            <input type="number" id="phone_number" name="no_hp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="IDN Boarding School" >
+                            <input type="number" id="phone_number" name="no_hp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="08..." >
                             @error('no_hp')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="guardian_phone_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">No. HP Wali</label>
-                            <input type="number" id="guardian_phone_number" name="no_hp_wali" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Raya Dayeuh, Sukanegara, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830" >
+                            <input type="number" id="guardian_phone_number" name="no_hp_wali" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="08..." >
                             @error('no_hp_wali')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
@@ -123,7 +123,7 @@
                     </div>
                     <div>
                         <label for="internship_expectations" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Harapan Magang</label>
-                        <textarea id="internship_expectations" name="harapan_magang" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></textarea>
+                        <textarea id="internship_expectations" name="harapan_magang" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Lorem ipsum..."></textarea>
                         @error('harapan_magang')
                             <p class="text-red-500">{{ $message }}</p>
                         @enderror
@@ -167,7 +167,7 @@
                     <div class="grid gap-6 mb-6 lg:grid-cols-2">
                         <div>
                             <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Panggilan</label>
-                            <input type="text" id="first_name" name="nama_panggilan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Abdul Aziz" value="{{ $user->profile->nama_panggilan ?? '-' }}" >
+                            <input type="text" id="first_name" name="nama_panggilan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John Doe" value="{{ $user->profile->nama_panggilan ?? '-' }}" >
                             @error('nama_pangggilan')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
@@ -190,7 +190,7 @@
                         <div>
 
                             <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat Lengkap</label>
-                            <input type="text" id="address" name="alamat_domisili" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Sholeh Iskandar No.KM 6, RT.04/RW.01, Cibadak, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16166" value="{{ $user->profile->alamat_domisili ?? '-'}}" >
+                            <input type="text" id="address" name="alamat_domisili" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl.Example..." value="{{ $user->profile->alamat_domisili ?? '-'}}" >
                             @error('alamat_domisili')
                                     <p class="text-red-500">{{ $message }}</p>
                                     @enderror
@@ -198,28 +198,28 @@
                                 </div>
                                     <div>
                                         <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Lama Waktu Magang</label>
-                            <input type="number" id="age" name="lama_waktu_magang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0" value="{{ $user->profile->lama_waktu_magang ?? '-'}}" >
+                            <input type="number" id="age" name="lama_waktu_magang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0..." value="{{ $user->profile->lama_waktu_magang ?? '-'}}" >
                             @error('lama_waktu_magang')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="school_major" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Jurusan Sekolah</label>
-                            <input type="text" id="school_major" name="jurusan_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rpl (Web Dev)" value="{{ $user->profile->jurusan_sekolah ?? '-'}}"  >
+                            <input type="text" id="school_major" name="jurusan_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rpl (Web Dev)..." value="{{ $user->profile->jurusan_sekolah ?? '-'}}"  >
                             @error('jurusan_sekolah')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="school_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asal Sekolah/Kampus</label>
-                            <input type="text" id="school_name" name="nama_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="IDN Boarding School" value="{{ $user->profile->nama_sekolah ?? '-'}}" >
+                            <input type="text" id="school_name" name="nama_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="SMA/SMK/MAN/Universitas..." value="{{ $user->profile->nama_sekolah ?? '-'}}" >
                             @error('nama_sekolah')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="school_address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat Sekolah/Kampus</label>
-                            <input type="text" id="school_address" name="alamat_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Raya Dayeuh, Sukanegara, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830" value="{{ $user->profile->alamat_sekolah ?? '-'}}" >
+                            <input type="text" id="school_address" name="alamat_sekolah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl.Example..." value="{{ $user->profile->alamat_sekolah ?? '-'}}" >
                             @error('alamat_sekolah')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
@@ -227,7 +227,7 @@
 
                         <div>
                             <label for="hobby" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hobi</label>
-                            <input type="text" id="hobby" name="hobi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bermain Futsal"
+                            <input type="text" id="hobby" name="hobi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Soccer..."
                             value="{{ $user->profile->hobi ?? '-'}}" >
                             @error('hobi')
                                 <p class="text-red-500">{{ $message }}</p>
@@ -236,35 +236,35 @@
 
                         <div>
                             <label for="awards" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Penghargaan</label>
-                            <input type="text" id="awards" name="penghargaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Abdul Aziz"  value="{{ $user->profile->penghargaan ?? '-'}}" >
+                            <input type="text" id="awards" name="penghargaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="National..."  value="{{ $user->profile->penghargaan ?? '-'}}" >
                             @error('penghargaan')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="certifications" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sertifikasi</label>
-                            <input type="text" id="certifications" name="sertifikasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rpl (Web Dev)" value="{{ $user->profile->sertifikasi ?? '-'}}" >
+                            <input type="text" id="certifications" name="sertifikasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="CCNA, Dicoding..." value="{{ $user->profile->sertifikasi ?? '-'}}" >
                             @error('sertifikasi')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="special_skills" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Keahlian Khusus</label>
-                            <input type="text" id="special_skills" name="keahlian_khusus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Sholeh Iskandar No.KM 6, RT.04/RW.01, Cibadak, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16166" value="{{ $user->profile->keahlian_khusus ?? '-'}}"  >
+                            <input type="text" id="special_skills" name="keahlian_khusus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Laravel, Cisco..." value="{{ $user->profile->keahlian_khusus ?? '-'}}"  >
                             @error('keahlian_khusus')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="phone_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">No. HP</label>
-                            <input type="number" id="phone_number" name="no_hp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="IDN Boarding School" value="{{ $user->profile->no_hp ?? '-'}}" >
+                            <input type="number" id="phone_number" name="no_hp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="08..." value="{{ $user->profile->no_hp ?? '-'}}" >
                             @error('no_hp')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="guardian_phone_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">No. HP Wali</label>
-                            <input type="number" id="guardian_phone_number" name="no_hp_wali" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jl. Raya Dayeuh, Sukanegara, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830" value="{{ $user->profile->no_hp_wali ?? '-'}}" >
+                            <input type="number" id="guardian_phone_number" name="no_hp_wali" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="08..." value="{{ $user->profile->no_hp_wali ?? '-'}}" >
                             @error('no_hp_wali')
                                 <p class="text-red-500">{{ $message }}</p>
                             @enderror
@@ -272,7 +272,7 @@
                     </div>
                     <div>
                         <label for="internship_expectations" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Harapan Magang</label>
-                        <textarea id="internship_expectations" name="harapan_magang" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >{{ $user->profile->harapan_magang ?? '-'}}</textarea>
+                        <textarea id="internship_expectations" name="harapan_magang" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Lorem ipsum..." >{{ $user->profile->harapan_magang ?? '-'}}</textarea>
                         @error('harapan_magang')
                             <p class="text-red-500">{{ $message }}</p>
                         @enderror
