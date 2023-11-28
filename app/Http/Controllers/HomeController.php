@@ -16,4 +16,22 @@ class HomeController extends Controller
 
         return view('index', compact('posts','users'));
     }
+
+    public function list_pendaftar()
+    {
+
+        return view('layouts.pendaftar.list_pendaftar');
+    }
+
+    public function pendaftar_diterima()
+    {
+
+        return view('layouts.pendaftar.pendaftar_diterima');
+    }
+
+    public function pendaftar_ditolak()
+    {
+
+        return view('layouts.pendaftar.pendaftar_ditolak');
+    }
 }

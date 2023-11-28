@@ -35,6 +35,9 @@ Route::get('/infografis', [InfografisController::class, 'index'])->middleware('a
 Route::get('register', [ReRegistrationController::class, 'daftar']);
 Route::post('/registerstudent', [ReRegistrationController::class, 'registerstudent'])->name('registerstudent');
 
+route::get('list_pendaftar', [HomeController::class, 'list_pendaftar']);
+route::get('pendaftar_diterima', [HomeController::class, 'pendaftar_diterima']);
+route::get('pendaftar_ditolak', [HomeController::class, 'pendaftar_ditolak']);
 
 
 Route::prefix('user')->group(function () {

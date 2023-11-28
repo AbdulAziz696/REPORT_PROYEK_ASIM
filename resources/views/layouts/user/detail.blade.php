@@ -47,18 +47,7 @@
                         aria-controls="contacts" aria-selected="false">Infografis</button>
                 </li>
 
-                <li role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="accepted-tab" data-tabs-target="#accepted" type="button" role="tab"
-                        aria-controls="accepted" aria-selected="false">Pendaftar Lolos</button>
-                </li>
                 
-                
-                <li role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="rejected-tab" data-tabs-target="#rejected" type="button" role="tab"
-                        aria-controls="rejected" aria-selected="false">Pendaftar Ditolak</button>
-                </li>
             </ul>
         </div>
 
@@ -276,20 +265,7 @@
             </div>
 
             
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="accepted" role="tabpanel"
-            aria-labelledby="accepted-tab">
-                <div class="container inline-flex flex-wrap justify-center">
-                <p>orang diterima</p>
-                </div>
-            </div>
-
             
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="rejected" role="tabpanel"
-            aria-labelledby="rejected-tab">
-                <div class="container inline-flex flex-wrap justify-center">
-                <p>orang ditolak</p>
-                </div>
-            </div>
 
 
             

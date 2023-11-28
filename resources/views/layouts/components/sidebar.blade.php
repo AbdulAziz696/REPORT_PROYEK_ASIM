@@ -74,6 +74,27 @@
           >
               Info Grafis
           </a>
+          <a
+              href="{{ url('list_pendaftar') }}"
+              role="menuitem"
+              class="block p-2 text-sm {{ Request::is('infografis*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light"
+          >
+             List Pendaftar Magang
+          </a>
+          <a
+              href="{{ url('pendaftar_diterima') }}"
+              role="menuitem"
+              class="block p-2 text-sm {{ Request::is('infografis*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light"
+          >
+              Pendaftar Lolos
+          </a>
+          <a
+              href="{{ url('pendaftar_ditolak') }}"
+              role="menuitem"
+              class="block p-2 text-sm {{ Request::is('infografis*') ? 'text-gray-700 hover:text-gray-700' : 'text-gray-400 hover:text-gray-700' }} transition-colors duration-200 rounded-md dark:hover:text-light"
+          >
+              Pendaftar Ditolak
+          </a>
 
       </div>
 
